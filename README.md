@@ -13,11 +13,11 @@ I’m classically trained in **Mechanical Engineering**, yet my reverence for _D
 - [ ] Dijkstra’s Algorithm
 
 
-## Outline for CCs
+## My Outline for CCs
 ### Problem Statement
 * Details for Challenge
 
-### My Approach
+### Approach
 * Conceptual Analysis
   * Algorithm Overview 
   * Assumptions 
