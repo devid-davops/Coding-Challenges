@@ -38,6 +38,12 @@ number based on multiples of N:
         1. If no, print the number.
 
 
+### Solution 2 - Use Modulus, %, and Print
+1.  Implement updates to Solution 1:
+    1. Use the Modulus, or Modulo, operator, "%".
+    1. Don't create auxiliary lists (don't store data, just print).
+
+
 ## Extra Notes
 ### Improvements (optional but possibly fun)
 1. Solve this challenge without auxiliary variables / lists.
