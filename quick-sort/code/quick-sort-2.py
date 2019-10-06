@@ -1,24 +1,30 @@
 def partition(arr, start_index, end_index):
-    """# Block B -> Partitions a given iterable using index-boundaries. Sorts numbers (least to greatest) using Partition-Index, PI. Returns PI."""
-    ref_val = arr[end_index] # set reference-value to the last value in array, use "end-index" input rather than "-1" to be consistent and robust.
+    """# Block B -> Partitions a given iterable using index-boundaries.
+    Sorts numbers (least to greatest) using Partition-Index, PI.
+    Returns PI.
+    """
+    ref_val = arr[end_index] # be consistent & robust, use "end-index" not "-1"
     part_indx = start_index
-    for i in range(start_index, end_index): # iterate via index from start (inclusive) to end (exclusive: "end - 1")
+    for i in range(start_index, end_index): # inclusive start, exclusive end
         if arr[i] <= ref_val:
-            arr[i], arr[part_indx] = arr[part_indx], arr[i] # update array: swap values to separate "less" from "greater"
+            # Update array: swap values to separate "less" from "greater".
+            arr[i], arr[part_indx] = arr[part_indx], arr[i]
             part_indx += 1
-    # Swap values: a) last array-element and b) value at Partition-Index
-    arr[end_index], arr[part_indx] = arr[part_indx], arr[end_index] # update array and its bookmark
+    # Update: swap a) last array-element with b) value at Partition-Index.
+    arr[end_index], arr[part_indx] = arr[part_indx], arr[end_index]
     return part_indx
 
 
 def quickSort(arr, start_index, end_index):
-    """# Block A -> Main. Implement the Quick Sort algorithm for a given array using 'start' and 'end' indices as partition boundaries."""
+    """# Block A -> Main. Implement the Quick Sort algorithm for a 
+    given array using 'start' and 'end' indices as partition boundaries.
+    """
     # Check for valid inputs:
-    # - "Divide and Conquer" approach should occur recursively if length of sectioned-array is greater than 1,
+    # - The recursive "Divide & Conquer" approach occurs if array-length is greater than 1,
     # - and if 'start-index' is less than 'end-index' (based on Left to Right approach).
     if len(arr) > 1:
         if start_index < end_index: # separate check-lines for easier Troubleshooting
-            partition_index = partition(arr, start_index, end_index) # call Block B to separate values & return the bookmark PI
+            partition_index = partition(arr, start_index, end_index)
             quickSort(arr, start_index, partition_index - 1) # recursively process left side of PI
             quickSort(arr, partition_index + 1, end_index) # recursively process right side of PI
 
@@ -72,8 +78,7 @@ print(f"Sorted: {given}")
     
     
     ## ** SOLUTION **
-    # Define a function that accepts a given array along with "start-index"
-    # and "end-index" (section boundaries for processing array):
+      # Define a function that accepts a given array along with "start-index" and "end-index" (section boundaries for processing array):
         # Check for invalid inputs:
             # if valid (length is greater than 1): proceed.
             # if invalid: print "Invalid entry." or do nothing.
@@ -83,7 +88,7 @@ print(f"Sorted: {given}")
                 # Block A -> Main:
                     # Accpet indices as section boundaries to apply while processing array: "start-index" and "end-index".
                     # Check if "start" is less than "end" to ensure program will work from left to right.
-                    # if start < end:
+                    # If start < end:
                         # Partition (divide into parts) the array using inputs: array, start-index, end-index. Use a PI as a bookmark.
                             # Call Block B to Partition and process each section of the array, which should allow recursion (function calling itself).
                             # ... ... Block B should separate values that are greater than a reference-value value from values that are less than that ref_val value,
@@ -98,7 +103,7 @@ print(f"Sorted: {given}")
                                     # RIGHT SIDE of PI:
                                         # Pass "array, PI + 1, end-index"
                                         # ... Notice that "PI + 1" is needed for the RIGHT side of the PI-bookmark.
-                    ## maybe add an "else" to print("'start-index' must be less than 'end-index'").
+                    ## Maybe add an "else" to print("'start-index' must be less than 'end-index'").
                 
                 # Block B -> Partition, Move Index Linearly from Left to Right:
                     # Accept: array, start (the start-index), end (the end-index)
@@ -112,14 +117,14 @@ print(f"Sorted: {given}")
                     # After the loop (outside loop), swap the value at PI with the value at ref_val.
                     # Return the actual Partition-Index (index, not value) to allow recursion.
                 
-                ## No need to call "return array" because the array itself is being manipulated.
+                ## Note --> No need to call "return array" because the array itself is being manipulated.
                 ## A better way to implement "Do Nothing" condition-statements:
                     ## When we want the code to "do nothing for case a < b", avoid extra non-essential code, 
                     ## ... if possible, simply make code "do something for case a > b" ... thus, no need for "elif-else: do nothing".
-    ##
-    # Test on given list: [7,6,5,4,3,2,1,0]
-    # Call quickSort() on given list using "start-index = 0" with "end-index = len(array) - 1"
-    # Print results.
+      
+      # Test on given list: [7,6,5,4,3,2,1,0]
+      # Call quickSort() on given list using "start-index = 0" with "end-index = len(array) - 1"
+      # Print results.
     
     
     ## ** IMPROVEMENTS (Extra Practice for Fun) **
