@@ -44,12 +44,12 @@
         # 2. Conditionally partition iterable halfway (or nearly).
             # Repeat: Separate input into Left-side & Right-side.
             # Condition: Stop if sub-section has less than 2 elements.
-            # An array of one (or zero) element cannot be inherently unordered.
+            # An array of one (or zero) element can't be inherently unordered.
         # 3. Sort Left-side & Right-side separately.
-        # 4. Compare then merge Left & Right sides to build the sorted array.
+        # 4. Build the sorted array by merging elements of each side in order.
     
     
-    ## Key Terms
+    ## ** KEY TERMS **
         # element: fundamental ingredient of iterable
         # item: sub-section of original input-array, length may vary
             # (i.g., Left-side, Right-side)
@@ -58,11 +58,11 @@
         
         # Example for clarity:
             # Consider the following list: A = [4, 0, 1]
-            # Here, if A is partitioned into Left-side & Right-side:
+            # Here, if A is partitioned into "Left" & "Right" sides:
                 # Left = [4]
-                # ... this item has one element (N = 1)
+                # ... the item "Left" has one element (N = 1)
                 # Right = [0, 1]
-                # ... this item has two elements (N = 2)
+                # ... the item "Right" has two elements (N = 2)
     
     
     ## ** ASSUMPTIONS **
@@ -78,8 +78,8 @@
       # -> and "end-index", these section boundaries are needed to proces the
       # -> array & its sub-sections:
         # Check for invalid inputs:
-            # if valid: proceed.
-            # if invalid: print "Invalid entry." or do nothing.
+            # IF valid: proceed.
+            # IF invalid: print "Invalid entry." or do nothing.
         
         # Divide and Conquer -> Compare each element:
             # Setup sub-function(s):
@@ -89,12 +89,23 @@
                         # ... return Partition-Index as a bookmark
                     # Recursive call on Left-side of bookmark
                     # Recursive call on Right-side of bookmark
-                # Block B -> Merge / Combine:
-                    # 
+                
+                # Block B -> Compare and Merge:
+                    # Compare element(s) of item "Left" with those of "Right".
+                    # Conditionally append or insert Left-element into Right.
+                    # -> "Right" is already sorted (via function or "N = 1").
+                        # for every element (elm) inside Left:
+                            # IF current elm in Left >= the last elm in Right:
+                                # Do MAX-case: append Left-elm to Right-item.
+                            # ELSE Loop over index k from start to N of Right:
+                                # if Left-elm is < Right-elm at index k:
+                                    # insert Left-elm at k, increment k by 1.
       
       
       
-      # Test on given list: [7, 6, 5, 4, 8, 3, 14, 2, 11, 1, 0]
+      # Test on given lists: 
+        # [7, 3, 6, 1, 0]
+        # [7, 6, 5, 4, 8, 3, 14, 2, 11, 1, 0]
       # Call mergeSort() on given list using "start-index = 0" with "end-index = len(array) - 1"
       # Print results.
     
