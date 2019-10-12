@@ -82,7 +82,7 @@ def mergeSort(arr):
 
 ## Test on given lists:
 A = [7, 3, 6, 1, 0]
-#### A = [7, 6, 5, 4, 8, 3, 14, 2, 11, 1, 0]
+#### A = [7, 6, 5, 4, 8, 3, 14, 2, 11, 1, 0, 92.75, 0.5]
 print(f"Given: {A}")
 sorted_output = mergeSort(A)
 print(f"Sorted output: {sorted_output}")
@@ -129,7 +129,7 @@ print(f"Sorted output: {sorted_output}")
     ## ** KEY TERMS **
         # element: fundamental ingredient of iterable
         # item: sub-section of original input-array, length may vary
-            # (i.g., Left-side, Right-side)
+            # (e.g., Left-side, Right-side)
         # N: length of array or sub-section (number of elements present)
         # partition: separate into smaller parts (i.e., split into items)
         
@@ -162,7 +162,7 @@ print(f"Sorted output: {sorted_output}")
       # -> and "end-index", these section boundaries are needed to proces the
       # -> array & its sub-sections:
         # Check for invalid inputs:
-            # IF valid: proceed (i.g., check length of array & check indices).
+            # IF valid: proceed (e.g., check length of array & check indices).
             # IF invalid: print "Invalid entry." or do nothing.
         
         # Divide and Conquer -> Compare each element:
@@ -182,10 +182,12 @@ print(f"Sorted output: {sorted_output}")
                                 # -> thus, process each Right item first.
                         # Recursively call main on Left-side of bookmark.
                             # Store sorted output.
-                        # Call Block B:
-                            # Merge sorted Left & sorted Right in order.
-                        # Return sorted-array
-                    # IF N < 2: Return
+                        # Call Block B to Merge:
+                            # Combine sorted Left & sorted Right in order.
+                        # Return sorted-array. <------------ # Sorted-Right is being updated by Block B but needs to be stored.
+                    # ELSE:
+                        # IF N < 2:
+                            # Return the current input-array.
 
                 
                 # Block B -> Compare and Merge:
