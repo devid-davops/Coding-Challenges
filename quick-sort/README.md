@@ -31,7 +31,7 @@ Implement the Quick Sort algorithm.
 **Apply a recursive "Divide and Conquer" approach.**
 1. Accept a given array along with a "start-index" and an "end-index" (the section-view boundaries).
 2. Check for invalid inputs:
-    1. If valid (i.g., length is greater than 1), proceed to the "Divide and Conquer" section.
+    1. If valid (e.g., length is greater than 1), proceed to the "Divide and Conquer" section.
     1. If invalid, do nothing.
 3. **Divide and Conquer.**
 4. Print results (the sorted array).
@@ -49,7 +49,7 @@ Implement the Quick Sort algorithm.
   * Set the **Pivot** (reference-value) to the last element in the array.
   * Set the _Partition-Index_ `PI` to the first element in the array.
   * Compare the **Pivot** to each array-element, but don't compare to itself (use a _loop_ from "start" to "end - 1").
-  * If the value at index **_i_** (i.g., _array[i]_) is less than or equal to the **Pivot's** value, swap the value at **_i_** with the value at the `PI`, and then increment the `PI` by one to move linearly from left to right to the next element in the array.
+  * If the value at index **_i_** (e.g., _array[i]_) is less than or equal to the **Pivot's** value, swap the value at **_i_** with the value at the `PI`, and then increment the `PI` by one to move linearly from left to right to the next element in the array.
   * After exiting the loop, place the **Pivot** in numerical order by swapping its value with the value at the `PI`.
   * Return the actual Partition-Index (index, not value) to allow recursion.
 
