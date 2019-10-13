@@ -7,9 +7,6 @@ def combine(Left_item, Right_item):
     {Right_item}
     """)
     
-    ##### Aux-arr to serve as sorted output
-    #### output = Right_item[:]
-    
     for Left_elem in Left_item:
         # Check for MAX-Case
         if Left_elem >= Right_item[-1]:
@@ -78,20 +75,16 @@ def mergeSort(arr):
 
 
 
-
-
 ## Test on given lists:
 A = [7, 3, 6, 1, 0]
-#### A = [7, 6, 5, 4, 8, 3, 14, 2, 11, 1, 0, 92.75, 0.5]
 print(f"Given: {A}")
 sorted_output = mergeSort(A)
 print(f"Sorted output: {sorted_output}")
 
-#### ## INCORRECT, Troubleshoot and fix as needed, & update approach!
-#### B = [7, 3, 6, 1, 0]
-#### print(f"Given: {B}")
-#### mergeSort(B, 0, len(B) - 1)
-#### print(f"Sorted: {B}")
+B = [7, 6, 5, 4, 8, 3, 14, 2, 11, 1, 0, 92.75, 0.5]
+print(f"Given: {B}")
+sorted_output = mergeSort(B)
+print(f"Sorted output: {sorted_output}")
 
 
 
@@ -159,10 +152,8 @@ print(f"Sorted output: {sorted_output}")
     
     ## ** SOLUTION **
       # Define a function that accepts a given array.
-      # -> and "end-index", these section boundaries are needed to proces the
-      # -> array & its sub-sections:
         # Check for invalid inputs:
-            # IF valid: proceed (e.g., check length of array & check indices).
+            # IF valid: proceed (e.g., check length of input).
             # IF invalid: print "Invalid entry." or do nothing.
         
         # Divide and Conquer -> Compare each element:
@@ -172,7 +163,7 @@ print(f"Sorted output: {sorted_output}")
                         # Create a Partition-Index to split input in half:
                             # part_index = N // 2
                             # -> Indices must be integers so "//" is used.
-                            # -> Input could be array or item.
+                            # -> Input could be an array or item.
                         # Return Partition-Index to use as a bookmark.
                         # Store "Left" and "Right" items from partition.
                         # Recursively call main on Right-side of bookmark.
@@ -183,12 +174,11 @@ print(f"Sorted output: {sorted_output}")
                         # Recursively call main on Left-side of bookmark.
                             # Store sorted output.
                         # Call Block B to Merge:
-                            # Combine sorted Left & sorted Right in order.
-                        # Return sorted-array. <------------ # Sorted-Right is being updated by Block B but needs to be stored.
+                            # Combine Sorted-Left & Sorted-Right in order.
+                        # Return sorted-array. <------------ # Sorted-Right has been updated by Block B, but needs to be returned now to be used / stored for recursion.
                     # ELSE:
                         # IF N < 2:
-                            # Return the current input-array.
-
+                            # Return the current input
                 
                 # Block B -> Compare and Merge:
                     # Compare element(s) of item Left with those of Right.
@@ -202,6 +192,7 @@ print(f"Sorted output: {sorted_output}")
                                     # insert Left-elm at k
                                     # Break from current loop-iteration
                         # ------------> return Right as the sorted array. <------------ # Right is being manipulated, so I don't need to return it here.
+      
       # Test on given lists: 
         # [7, 3, 6, 1, 0]
         # [7, 6, 5, 4, 8, 3, 14, 2, 11, 1, 0]
