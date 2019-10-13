@@ -1,78 +1,38 @@
 def combine(Left_item, Right_item):
-    """ ... update doc str ... """
-    # Block B -> Compare and Merge:
-    
-    print(f""" ---- TROUBLESHOOTING ---- 
-    Initial Right_item put into combine():
-    {Right_item}
-    """)
-    
+    """Block B: Compares elements between two items, conditionally
+    merges elements of the Left item with elements of the Right item,
+    and updates Right item to serve as the sorted array.
+    """
     for Left_elem in Left_item:
-        # Check for MAX-Case
         if Left_elem >= Right_item[-1]:
+            # MAX-Case
             Right_item.append(Left_elem)
         else:
             for index_k in range(len(Right_item)):
                 if Left_elem < Right_item[index_k]:
                     Right_item.insert(index_k, Left_elem)
                     break
-    ##### return Right_item # Right is being manipulated, so I don't need to return it here.
-
-    print(f""" ---- TROUBLESHOOTING ---- 
-    Returning Right_item from combine():
-    {Right_item}
-    """)
 
 
-##### def mergeSort(arr, start_index, end_index): -------------------------------------------------- update concept outline
 def mergeSort(arr):
-    """ ... update doc str ... """
-    # Block A -> Main and Partition:
-    # Conditionally partition input halfway (or nearly)
+    """Block A: Main. Implements the Merge Sort algorithm.
+    Input: 1-D Array of non-repeating numbers.
+    Output: Sorted version of the input.
+    """
     if len(arr) >= 2:
-        ##### if start_index < end_index: -------------------------------------------------- not needed anymore
+        # Conditionally partition input halfway (or nearly)
         part_index = len(arr)//2
-
         Left = arr[:part_index]
         Right = arr[part_index:]
         
         # Allow recursion on the longer item (Right-side) first
-        # ------------> NEED TO STORE THE SORTED OUTPUT AS THE NEW INPUT FOR COMBINE!
         sorted_Right = mergeSort(Right)
         sorted_Left = mergeSort(Left)
-        
-        print(f""" 1 ... ---- TROUBLESHOOTING before combine () ---- 
-        Initial Right put into mergeSort():
-        {Right}
-        Left ...
-        {Left}
-        **********************
-        sort left
-        {sorted_Left}
-        sorted right
-        {sorted_Right}
-        """)
-        
-        combine(sorted_Left, sorted_Right) # ------------> need to combine the SORTED items, not the newly partitioned items, which will be either the "N = 1" or the "N > 1" items.
-        
-        print(f""" 2 ... ---- TROUBLESHOOTING after combine () ---- 
-        Right being returned from mergeSort():
-        {Right}
-        Left ...
-        {Left}
-        **********************
-        sorted left
-        {sorted_Left}
-        sorted right should be the sorted array
-        {sorted_Right}
-        """)
-
+        combine(sorted_Left, sorted_Right)
         return sorted_Right
     
     else:
         return arr
-
-
 
 
 ## Test on given lists:
@@ -80,11 +40,13 @@ A = [7, 3, 6, 1, 0]
 print(f"Given: {A}")
 sorted_output = mergeSort(A)
 print(f"Sorted output: {sorted_output}")
+## Sorted output: [0, 1, 3, 6, 7]
 
 B = [7, 6, 5, 4, 8, 3, 14, 2, 11, 1, 0, 92.75, 0.5]
 print(f"Given: {B}")
 sorted_output = mergeSort(B)
 print(f"Sorted output: {sorted_output}")
+## Sorted output: [0, 0.5, 1, 2, 3, 4, 5, 6, 7, 8, 11, 14, 92.75]
 
 
 
@@ -105,6 +67,8 @@ print(f"Sorted output: {sorted_output}")
                 >> https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/overview-of-merge-sort
             2. Merge sort algorithm by mycodeschool
                 >> https://youtu.be/TzeBrDU-JaY
+        [4] Thinking Recursively in Python – Real Python
+            >> https://realpython.com/python-thinking-recursively/
 """
 
 
@@ -175,7 +139,7 @@ print(f"Sorted output: {sorted_output}")
                             # Store sorted output.
                         # Call Block B to Merge:
                             # Combine Sorted-Left & Sorted-Right in order.
-                        # Return sorted-array. <------------ # Sorted-Right has been updated by Block B, but needs to be returned now to be used / stored for recursion.
+                        # Return sorted-array.
                     # ELSE:
                         # IF N < 2:
                             # Return the current input
@@ -190,15 +154,9 @@ print(f"Sorted output: {sorted_output}")
                             # ELSE Loop over index k from start to N of Right:
                                 # if Left-elm is < Right-elm at index k:
                                     # insert Left-elm at k
-                                    # Break from current loop-iteration
-                        # ------------> return Right as the sorted array. <------------ # Right is being manipulated, so I don't need to return it here.
+                                    # Break from current loop-iteration      
       
-      # Test on given lists: 
-        # [7, 3, 6, 1, 0]
-        # [7, 6, 5, 4, 8, 3, 14, 2, 11, 1, 0]
-      # Call mergeSort() on given list and store sorted output.
-        # DON'T NEED INPUT INDICES ANYMORE ------------> Set the "start-index" to: 0
-        # DON'T NEED INPUT INDICES ANYMORE ------------> Set the "end-index" to: len(array) - 1
+      # Call mergeSort() on a given list and store the sorted output.
       # Print results.
     
     
