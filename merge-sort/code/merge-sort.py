@@ -48,6 +48,12 @@ sorted_output = mergeSort(B)
 print(f"Sorted output: {sorted_output}")
 ## Sorted output: [0, 0.5, 1, 2, 3, 4, 5, 6, 7, 8, 11, 14, 92.75]
 
+C = [7, 6, 5, 4, 7, 3, 14, 7, 1, 1, 1, 0, 92.75, 0.5, 8]
+print(f"Given: {C}")
+sorted_output = mergeSort(C)
+print(f"Sorted output: {sorted_output}")
+## Sorted output: [0, 0.5, 1, 1, 1, 3, 4, 5, 6, 7, 7, 7, 8, 14, 92.75]
+
 
 
 
@@ -107,7 +113,7 @@ print(f"Sorted output: {sorted_output}")
     
     
     ## ** ASSUMPTIONS **
-        # 1. Array (or other iterable) contains only non-repeating numbers.
+        # 1. Array (or other iterable) contains only numbers that may repeat.
         # 2. Array is One-Dimensional of some length N.
             # (i.e., there are no nested iterables).
         # 3. When partitioning, integer-division "//" rounds down, and thus,
