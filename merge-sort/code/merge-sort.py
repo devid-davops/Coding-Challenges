@@ -53,7 +53,7 @@ print(f"Sorted output: {sorted_output}")
 
 ## DBE's Notes
 """ Notes about Challenge:
-    1. Implement the Quick-Sort algorithm.
+    1. Implement the Merge-Sort algorithm.
         -> input:   [7, 6, 5, 4, 8, 3, 14, 2, 11, 1, 0]
         -> output:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 11, 14]
 
@@ -62,7 +62,7 @@ print(f"Sorted output: {sorted_output}")
             >> https://docs.python.org/3/index.html
         [2] Merge sort - Wiki 
             >> https://en.wikipedia.org/wiki/Merge_sort
-        [3] Overviews of Quick-Sort algorithm:
+        [3] Overviews of Merge-Sort algorithm:
             1. Khan Academy
                 >> https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/overview-of-merge-sort
             2. Merge sort algorithm by mycodeschool
