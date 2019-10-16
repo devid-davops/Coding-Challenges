@@ -29,8 +29,7 @@ number based on multiples of N:
 1. Consider every multiple as a "constraint".
     1. Each constraint (key) will print a unique word (value).
 1. Store a list of numbers for each constraint as a reference.
-    1. If "range(start,stop)" is used, add 1 in "stop" to ensure
-    1. the last value, n, is accounted for.
+    1. If "range(start,stop)" is used, add 1 in "stop" to ensure the last value, n, is accounted for.
 1. Store word-constraints in a dictionary (preserves core concept).
     1. This preserves the code's concept and functionality while allowing changes to the constraints needed for printing.
     1. Define it before the main loop to provide clean code and easier troubleshooting.
