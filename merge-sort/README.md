@@ -10,10 +10,10 @@ Implement the Merge Sort algorithm.
 ## Approach
 ### Assumptions
 1. Array (or other iterable) contains only numbers that may repeat.
-1. Array is One-Dimensional of some length N.
-    1. (i.e., there are no nested iterables).
+1. Array is One-Dimensional of some length `N`.
+    1. No nested iterables.
 1. When partitioning, integer-division "//" rounds down.
-    1. Thus, "N of Right-side" is greater than or equal to "N of Left-side".
+    1. Thus, `N` of _Right-side_ is greater than or equal to `N` of _Left-side_.
 
 ### Overview of Algorithm and Solution
 1. **Accept** a valid input.
@@ -31,21 +31,26 @@ Implement the Merge Sort algorithm.
 
 
 ### Key Terms
-* element: fundamental ingredient of iterable (i.e., data value)
-* item: sub-section of original input-array, length may vary
+* `element` = fundamental ingredient of iterable (i.e., data value)
+* `item` = sub-section of original input-array, length may vary
     * _Left-item_ means "Left-side", likewise for "Right-side"
-* N: length of array or sub-section (i.e., number of elements present)
-* partition: separate into smaller parts (i.e., split into items)
+* `N` = length of array or sub-section (i.e., number of elements present)
+* `partition` = separate into smaller parts (i.e., split into items)
 
-**Example for clarity:**
+
+#### Example for Clarity
 Consider the following list: `A = [4, 0, 1]`
+
 Here, `A` is partitioned into `Left` & `Right` sides using Python 3:
-`>>> mid_index = len(A)//2  # which simplifies to 3//2`
-`>>> ## Output: 1`
-`>>> Left = A[:mid_index]`
-`>>> ## Output: [4]`
-`>>> Right = A[mid_index:]`
-`>>> ## Output: 1 [0, 1]`
+
+```python
+>>> mid_index = len(A)//2  # which simplifies to 3//2
+>>> ## Output: 1
+>>> Left = A[:mid_index]
+>>> ## Output: [4]
+>>> Right = A[mid_index:]
+>>> ## Output: [0, 1]
+```
 
 * The `Left` item has one element (N = 1) while the `Right` item has has two elements (N = 2).
 
@@ -53,7 +58,10 @@ Here, `A` is partitioned into `Left` & `Right` sides using Python 3:
 ---
 
 
-> ... updates coming soon ~ DBE
+> _... **NOTE:**  Updates will occur on **Oct. 18, 2019**    ~ DBE_
+
+
+---
 
 
 ### Solution Outline
@@ -66,26 +74,73 @@ Here, `A` is partitioned into `Left` & `Right` sides using Python 3:
 4. Print results (the sorted array).
 
 
-#### Divide and Conquer Section
-* *Block A, Main:*
-  * 
-  *  
-* *Block B, Sort & Merge:*
-  * 
+#### Divide and Conquer Section (Code Excerpts)
+
+***Block A, Main & Partition:***
+
+```python
+def mergeSort(arr):
+    """Block A: Main. Implements the Merge Sort algorithm.
+    Input: 1-D Array of non-repeating numbers.
+    Output: Sorted version of the input.
+    """
+    if len(arr) >= 2:
+        # Conditionally partition input halfway (or nearly)
+        part_index = len(arr)//2
+        Left = arr[:part_index]
+        Right = arr[part_index:]
+        
+        # Allow recursion on the longer item (Right-side) first
+        sorted_Right = mergeSort(Right)
+        sorted_Left = mergeSort(Left)
+        combine(sorted_Left, sorted_Right)
+        return sorted_Right
+    
+    else:
+        return arr
+```
+
+
+***Block B, Sort, Compare & Merge:***
+
+```python
+def combine(Left_item, Right_item):
+    """Block B: Compares elements between two items, conditionally
+    merges elements of the Left item with elements of the Right item,
+    and updates Right item to serve as the sorted array.
+    """
+    for Left_elem in Left_item:
+        if Left_elem >= Right_item[-1]:
+            # MAX-Case
+            Right_item.append(Left_elem)
+        else:
+            for index_k in range(len(Right_item)):
+                if Left_elem < Right_item[index_k]:
+                    Right_item.insert(index_k, Left_elem)
+                    break
+```
+
+
+> _... For more details, please see **SOLUTION** (at the bottom of this page) until updates have been made.    ~ DBE_
 
 
 ## Extra Notes
 ### Example: Updating the Right-item with the Left-elements
 Recall the example from the _Key Terms_ section.
+
 `mid_index` is the Partition-Index, which separates the input into _Left_ and _Right_ items.
 
-`>>> A = [4, 0, 1]`
-`>>> mid_index = len(A)//2  # which simplifies to 3//2`
-`>>> ## Output: 1`
-`>>> Left = A[:mid_index]`
-`>>> ## Output: [4]`
-`>>> Right = A[mid_index:]`
-`>>> ## Output: 1 [0, 1]`
+
+```python
+>>> A = [4, 0, 1]
+>>> mid_index = len(A)//2  # which simplifies to 3//2
+>>> ## Output: 1
+>>> Left = A[:mid_index]
+>>> ## Output: [4]
+>>> Right = A[mid_index:]
+>>> ## Output: [0, 1]
+```
+
 
 **Before Updating _Right_**
 * The `Left` item has one element (N = 1).
@@ -94,14 +149,14 @@ Recall the example from the _Key Terms_ section.
 
 **After Updating _Right_**
 
-> ... updates will illustrate how the _Right_ item is updated coditionally with elements from _Left_. ~ DBE
+> _... updates will illustrate how and why I update the __Right-item__ coditionally with __elements__ from the __Left-item__.    ~ DBE_
 
 
 
 ---
 
 ### Improvements (optional but possibly fun)
-1. Try variations of the "merge" or "combine" function.
+1. Try variations of the _merge-combine_ function.
 2. Apply different case-study circumstances.
 3. Account for nested iterables or empty items.
 
@@ -119,7 +174,7 @@ Recall the example from the _Key Terms_ section.
 
 ---
 
-> temporarily placing my solution here directly from my code ~ DBE
+> _... I'm temporarily placing my approach here directly from my code.    ~ DBE_
 
 ---
 
