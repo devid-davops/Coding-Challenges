@@ -3,13 +3,13 @@ I’m David, and this repo contains some of my favorite coding challenges that I
 
 With an arguably healthy amount of fun and practical frustration, these exercises are helping me learn fascinating concepts in **Computer Science**.
 
-I’m classically trained in **Mechanical Engineering**, yet my reverence for _Data_ and _Software_ expand as I strive for personal goals with Robotics. Thus, I’m aggrandizing my cognition to satisfy my curiosity while striving to provide innovative solutions to global issues.
+I’m classically trained in **Mechanical Engineering**, yet my reverence for _Data_ and _Software_ expands as I strive for personal goals with Robotics. Thus, I’m aggrandizing my cognition to satisfy my curiosity while striving to provide innovative solutions to global issues.
 
 
 ## Completed Coding Challenges (CCs)
 - [x] fizz-buzz (modified) x 2
 - [x] quick-sort algorithm
-- [ ] merge-sort algorithm
+- [x] merge-sort algorithm
 - [ ] Dijkstra’s Algorithm
 
 
