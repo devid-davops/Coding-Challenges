@@ -18,16 +18,16 @@ Implement the Merge Sort algorithm.
 ### Overview of Algorithm and Solution
 1. **Accept** a valid input.
 2. **Conditionally partition** input-iterable halfway (or nearly).
-    2. **Separate** _input_ into Left-side & Right-side.
-    2. **Condition:** Stop if _input_ has less than 2 elements.
-        2. _An array of one (or zero) element can't be inherently unordered._
+    1. **Separate** _input_ into Left-side & Right-side.
+    1. **Condition:** Stop if _input_ has less than 2 elements.
+        - _An array of one (or zero) element can't be inherently unordered._
 3. **Sort** Left-side & Right-side separately.
-    3. If the length of _input_ is greater than 1, **compare** values to _R_.
-        3. Where R is some chosen, preferred reference value.
-        3. (e.g., some value in _Left_, _Right_, or a new _auxiliary-array_)
+    1. If the length of _input_ is greater than 1, **compare** values to _R_.
+        - Where R is some chosen, preferred reference value.
+        - (e.g., some value in _Left_, _Right_, or a new _auxiliary-array_)
 4. **Build** the sorted array by merging elements of each side in order.
-    4. **Store or return** values based on _R_.
-        4. Sorted Array: _smaller values, R, larger values_
+    1. **Store or return** values based on _R_.
+        - Sorted Array: _smaller values, R, larger values_
 
 
 ### Key Terms
