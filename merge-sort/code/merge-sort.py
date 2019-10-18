@@ -16,7 +16,7 @@ def combine(Left_item, Right_item):
 
 def mergeSort(arr):
     """Block A: Main. Implements the Merge Sort algorithm.
-    Input: 1-D Array of non-repeating numbers.
+    Input: 1-D Array of unsorted numbers.
     Output: Sorted version of the input.
     """
     if len(arr) >= 2:
