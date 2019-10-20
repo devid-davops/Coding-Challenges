@@ -111,8 +111,8 @@ The `Left` item has one element (N = 1) while the `Right` item has has two eleme
 ---
 
 >**Remember:**
-> - An item is considered to be _sorted_ if `N = 1` is **True**, or if its elements are merged in order.
-> - Any `Right` item, where `N > 1` is **True**, will likely be longer than the corresponding `Left` item.
+> - An item is considered to be _sorted_ if `N = 1`, or if its elements are merged in order.
+> - Any `Right` item, where `N > 1`, will likely be longer than the corresponding `Left` item.
 > - Thus, partition & sort any `Right` item before the `Left`, then use its values as _references_.
 
 ---
@@ -165,7 +165,7 @@ The following example is a simplified process of placing every _element_ of `Lef
 
 #### Partition
 * Let's revisit the example from the **Key Terms** section.
-* `mid_index` is the Partition-Index, which separates _input_ `A` into `Left` & `Right` _items_.
+* `mid_index` is the Partition-Index, which separates _input_ `A` into `Left` & `Right` _items_, respectively.
 
 ```python
 >>> A = [4, 0, 1]
