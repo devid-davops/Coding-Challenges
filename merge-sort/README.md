@@ -43,7 +43,7 @@ Implement the Merge Sort algorithm.
     * (e.g., some value in _Left_, _Right_, or a new _auxiliary-array_)
 
 
-#### Example for Clarity
+### Example for Clarity
 Consider the following list: `A = [4, 0, 1]`
 
 Here, `A` is partitioned into `Left` & `Right` sections using Python 3.
@@ -108,6 +108,16 @@ The `Left` item has one element (N = 1) while the `Right` item has has two eleme
         ```
 
 
+---
+
+>**Remember:**
+> - An item is considered to be _sorted_ if `N = 1` is **True**, or if its elements are merged in order.
+> - Any `Right` item, where `N > 1` is **True**, will likely be longer than the corresponding `Left` item.
+> - Thus, partition & sort any `Right` item before the `Left`, then use its values as _references_.
+
+---
+
+
 ***Block B*** and ***Block A*** can be implemented in _Python 3_ like this:
 
 ```python
@@ -149,21 +159,13 @@ def mergeSort(arr):
 ```
 
 
----
-
->**Remember:**
-> - An item is considered to be _sorted_ if `N = 1` is **True**, or if its elements are merged in order.
-> - Any `Right` item, where `N > 1` is **True**, will likely be longer than the corresponding `Left` item.
-> - Thus, partition & sort any `Right` item before the `Left`, then use its values as _references_.
-
----
-
-
 ## Extra Notes
 ### Example: Updating the Right-item with the Left-elements
-Let's revisit the example from the **Key Terms** section:
-* `mid_index` is the Partition-Index, which separates _input_ `A` into `Left` & `Right` items.
-* The following example is a simplified process of placing every element of `Left` into `Right` in order.
+The following example is a simplified process of placing every _element_ of `Left` into `Right` in order.
+
+#### Partition
+* Let's revisit the example from the **Key Terms** section.
+* `mid_index` is the Partition-Index, which separates _input_ `A` into `Left` & `Right` _items_.
 
 ```python
 >>> A = [4, 0, 1]
@@ -177,9 +179,10 @@ Let's revisit the example from the **Key Terms** section:
 >>> ## Output: [0, 1]
 ```
 
-**Update the _Right Item_**
-* Before the merger, the `Left` item has one element (N = 1) while the `Right` item has has two elements (N = 2).
-* Note that each item is sorted, thus, merge `Left` _elements_ with the `Right` _item_ (in numerical order) using ***Block B***.
+
+#### Merge
+* Before the merger, the `Left` _item_ has one _element_ (N = 1) while the `Right` _item_ has has two _elements_ (N = 2).
+* Note that each item is sorted, thus, merge `Left` elements with the `Right` item (in numerical order) using ***Block B***.
 * After the merger, `Right` becomes the sorted version of _input_ `A`.
 
 ```python
