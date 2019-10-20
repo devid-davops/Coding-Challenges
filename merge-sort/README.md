@@ -3,9 +3,9 @@
 ## Problem Statement
 Implement the Merge Sort algorithm.
 
->input: [7, 6, 5, 4, 8, 3, 14, 2, 11, 1, 0]
+>input: [7, 6, 5, 4, 8, 3, 14, 2, 11.5, 1, 0, 2]
 
->output: [0, 1, 2, 3, 4, 5, 6, 7, 8, 11, 14]
+>output: [0, 1, 2, 2, 3, 4, 5, 6, 7, 8, 11.5, 14]
 
 ## Approach
 ### Assumptions
@@ -16,7 +16,7 @@ Implement the Merge Sort algorithm.
     1. Thus, `N` of _Right-side_ is greater than or equal to `N` of _Left-side_.
 
 ### Overview of Algorithm and Solution
-1. **Accept** a valid input-iterable.
+1. **Accept** a valid _input_-iterable.
 2. **Conditionally partition** _input_ halfway (or nearly).
     1. **Separate** _input_ into `Left` & `Right` sides, respectively.
     1. **Condition:** Stop if _input_ has less than 2 elements.
@@ -51,7 +51,7 @@ Here, `A` is partitioned into `Left` & `Right` sections using Python 3.
 The `Left` item has one element (N = 1) while the `Right` item has has two elements (N = 2).
 
 ```python
->>> mid_index = len(A)//2  # which simplifies to "3//2"
+>>> mid_index = len(A)//2  # which simplifies to: 3//2
 >>> ## Output: 1
 >>> 
 >>> Left = A[:mid_index]
@@ -88,15 +88,9 @@ The `Left` item has one element (N = 1) while the `Right` item has has two eleme
         * Choose `Sorted Right` as an anchor, use each value as reference `R`.
         * Compare & combine _sorted items_ by placing elements of `Sorted Left` into `Sorted Right` in numerical order.
     * Return sorted-array.
-    
-    ***Note:***
-    _Process any `Right` item first, then use its values as references._
-    _Any `Right` item, where `N > 1` is True, will likely be longer than the corresponding `Left` item._
-
 
 * _Block B, Compare & Merge:_
     * Using a loop, compare elements `elm` of `Left` with `elm` of `Right`.
-        * `Right` has already been sorted (i.e., `N = 1` or sorted & merged in order).
     * First, check for the _MAX-case_ & conditionally append to `Right`.
         
         ```
@@ -104,7 +98,7 @@ The `Left` item has one element (N = 1) while the `Right` item has has two eleme
             Append elm to Right_item
         ```
     
-    * Next, conditionally insert `Left elm` into `Right_item`.
+    * Next, conditionally insert `elm` of `Left` into `Right`.
         
         ```
         Loop over index k, from start to N of Right_item:
@@ -114,7 +108,7 @@ The `Left` item has one element (N = 1) while the `Right` item has has two eleme
         ```
 
 
-***Block A*** and ***Block B*** can be implemented in _Python 3_ like this:
+***Block B*** and ***Block A*** can be implemented in _Python 3_ like this:
 
 ```python
 def combine(Left_item, Right_item):
@@ -155,29 +149,25 @@ def mergeSort(arr):
 ```
 
 
-
-
 ---
 
-
-> _... **NOTE:**  Updates will occur by **Oct. 20, 2019**.    ~ DBE_
-
+>**Remember:**
+> - An item is considered to be _sorted_ if `N = 1` is **True**, or if its elements are merged in order.
+> - Any `Right` item, where `N > 1` is **True**, will likely be longer than the corresponding `Left` item.
+> - Thus, partition & sort any `Right` item before the `Left`, then use its values as _references_.
 
 ---
-
-
 
 
 ## Extra Notes
 ### Example: Updating the Right-item with the Left-elements
-Recall the example from the _Key Terms_ section.
-
-`mid_index` is the Partition-Index, which separates the input into `Left` & `Right` items.
-
+Let's revisit the example from the **Key Terms** section:
+* `mid_index` is the Partition-Index, which separates _input_ `A` into `Left` & `Right` items.
+* The following example is a simplified process of placing every element of `Left` into `Right` in order.
 
 ```python
 >>> A = [4, 0, 1]
->>> mid_index = len(A)//2  # which simplifies to "3//2"
+>>> mid_index = len(A)//2  # which simplifies to: 3//2
 >>> ## Output: 1
 >>> 
 >>> Left = A[:mid_index]
@@ -187,15 +177,20 @@ Recall the example from the _Key Terms_ section.
 >>> ## Output: [0, 1]
 ```
 
+**Update the _Right Item_**
+* Before the merger, the `Left` item has one element (N = 1) while the `Right` item has has two elements (N = 2).
+* Note that each item is sorted, thus, merge `Left` _elements_ with the `Right` _item_ (in numerical order) using ***Block B***.
+* After the merger, `Right` becomes the sorted version of _input_ `A`.
 
-**Before Updating _Right_**
-* The `Left` item has one element (N = 1).
-* The `Right` item has has two elements (N = 2).
-
-
-**After Updating _Right_**
-
-> _... updates will illustrate how and why I update the __Right-item__ coditionally with __elements__ from the __Left-item__.    ~ DBE_
+```python
+>>> Right
+>>> ## Output: [0, 1]
+>>> 
+>>> combine(Left, Right)
+>>> 
+>>> Right
+>>> ## Output: [0, 1, 4]
+```
 
 
 ---
