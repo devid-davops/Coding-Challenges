@@ -1,5 +1,5 @@
 # Overview of Projects
-I’m David, and this repo contains some of my favorite coding challenges that I’m trying to solve!
+I’m David, and this repo contains some of my favorite coding challenges that I’m encountering!
 
 With an arguably healthy amount of fun and practical frustration, these exercises are helping me learn fascinating concepts in **Computer Science**.
 
@@ -10,6 +10,7 @@ I’m classically trained in **Mechanical Engineering**, yet my reverence for _D
 - [x] fizz-buzz (modified) x 2
 - [x] quick-sort algorithm
 - [x] merge-sort algorithm
+- [ ] sum of prime factors
 - [ ] Dijkstra’s Algorithm
 
 
