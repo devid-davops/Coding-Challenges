@@ -1,7 +1,7 @@
 # Sum of Prime Factors
 
 ## Problem Statement
-Display the sum of all prime factors (if any exist) of a given number, N.
+Display the sum of all prime factors (if any exist) of a given integer, N.
 
 >input: 30
 
