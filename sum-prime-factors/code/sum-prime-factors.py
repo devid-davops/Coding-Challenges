@@ -8,7 +8,7 @@
 
 ## DBE's Notes
 """ Notes about Challenge:
-    1. Display the sum of all prime factors (if any exist) of a given number, N.
+    1. Display the sum of all prime factors (if any exist) of a given integer, N.
         -> input: 30
         -> output: 2 + 3 + 5 = 10
 
@@ -36,10 +36,28 @@
     
     
     ## ** SOLUTION **
-      # Define a function that accepts a given number N.
+      # Define a function that accepts a given integer N.
         # Check for invalid inputs:
-            # IF valid: proceed (e.g., check if type is integer).
+            # IF valid: proceed (e.g., check if type is integer and N > = 2).
             # IF invalid: print "Invalid entry." or do nothing.
+        
+        
+        
+        
+        
+        # Solution 1 - With Direct Search Factorization (trial division).
+            # 
+        
+        
+        
+        
+        
+        # Solution 2 - Without Direct Search Factorization.
+            # 
+        
+        
+        
+        
         
         # Divide and Conquer -> ? :
             # Setup sub-function(s):
@@ -48,6 +66,10 @@
                 
                 # Block B -> ?:
                     # ?
+      
+      
+      
+      
       
       # Call main function on a given input.
       # Print results.
