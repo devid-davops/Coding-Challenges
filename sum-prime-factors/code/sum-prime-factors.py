@@ -124,7 +124,7 @@ N = 22 = 2 * 11
 
 
 Approach for finding all PFs: Solution 1, Brute Force / Trial Division
-    Set new range of integers to consider for PFs: [pf_min, pf_max]
+    Set new range of integers to consider as PFs: [pf_min, pf_max]
         pf_min = 2
         .. (constant) the smallest possible prime factor
         
@@ -132,25 +132,32 @@ Approach for finding all PFs: Solution 1, Brute Force / Trial Division
         .. (variable) the largest possible prime factor
         .. Assume the operator for (floor) integer-division "//" rounds down.
     
+    Initialize auxiliary list to store PFs
+        pf = list()
+    
     For each current_integer in new range [2, pf_max]:
         .. factor-check
         Check if N is a multiple of current_integer: use "%" for trial-division
             If N % current_integer == 0: factor found, proceed to prime-check
             Else: go to next current_integer
-________________________________________________________________________________________________________________________________________________________________ resume here
-        .. prime-check
-        If a factor is found in new range: Check if it is a prime number
-            .. Filter out the non-prime numbers:
-            For each value in sub-range [2, current_integer):
-                If _?_ % _?_ == 0:
-                    Break from current loop iteration
-
-            .. The else clause of a for-loop will run when no "break" occurs,
-            .. which means a prime number has been found
-            Else: 
-                ? .... do something with prime number: store it and add later? 
         
-        .. approach should be fine for relatively small numbers, N <= 50.
+        .. prime-check, Filter out non-prime numbers
+        If a factor is found in new range: Check if it is a prime number
+            .. Check if current_integer has factors:
+            For each possible_factor in B-range [2, current_integer):
+                current_integer % possible_factor == 0:
+                    Break from current loop iteration
+            
+            .. The else clause of a for-loop will run when no "break" occurs,
+            .. which means current_integer is both a prime number and a factor of N.
+            Else: 
+                Append current_integer to list of PFs
+
+
+
+________________________________________________________________________________________________________________________________________________________________ resume here
+
+.. approach should be fine for relatively small numbers, N <= 50.
 
 50 // 2
 25
