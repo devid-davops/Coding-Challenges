@@ -133,12 +133,12 @@ Approach for finding all PFs: Solution 1, Brute Force / Trial Division
         .. Assume the operator for (floor) integer-division "//" rounds down.
     
     For each current_integer in new range [2, pf_max]:
-        .. factor-section
+        .. factor-check
         Check if N is a multiple of current_integer: use "%" for trial-division
-            If N % current_integer == 0: factor found, proceed to prime-section
+            If N % current_integer == 0: factor found, proceed to prime-check
             Else: go to next current_integer
 ________________________________________________________________________________________________________________________________________________________________ resume here
-        .. prime-section
+        .. prime-check
         If a factor is found in new range: Check if it is a prime number
             .. Filter out the non-prime numbers:
             For each value in sub-range [2, current_integer):
