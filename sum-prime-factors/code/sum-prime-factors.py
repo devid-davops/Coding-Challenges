@@ -36,6 +36,14 @@
     
     
     ## ** SOLUTION **
+      # Given an integer N, let N = pf_i * pf_j 
+        # .. where pf_i & pf_j are prime factors of N,
+        # .. which may not be distinct,
+        # .. may have their own prime factors, but
+        # .. only exist within the inclusive range: [2, N//2]
+      
+      
+      
       # Define a function that accepts a given integer N.
         # Check for invalid inputs:
             # IF valid: proceed (e.g., check if type is integer and N > = 2).
@@ -86,3 +94,64 @@
         # Track how the loops occur.
         # Track inputs & outputs.
         # Be sure the code & its action match conceptual approach.
+
+
+
+
+## Temporary Conceptual Analysis
+""" Note: A Prime Factor is a factor that is a prime number.
+
+Known: N = pf_i * pf_j 
+    .. where pf_i & pf_j are prime factors of a given number N,
+    .. which may not be distinct,
+    .. may have their own prime factors, but
+    .. exist within the inclusive range: [2, N//2]
+
+
+Approach for finding all PFs:
+    Range of integers to consider: [pf_min, pf_max]
+        .. Assume the (floor) integer-division "//" operator rounds down.
+        .. The smallest possible prime factor: pf_min = 2
+        .. The largest possible prime factor: pf_max <= N//2
+    Check if N is a multiple of integers in the new range [pf_min, pf_max]:
+        Trial-Division: divide N by values in new range 
+
+
+
+
+Example A: 15
+    PFs of 15 are 3 and 5.
+    
+    Use "//" to get the max value (upper-bound) for the range of pfs for 15:
+        15 // 2 = 7
+        Range of PFs: [2, 7]
+
+
+
+
+Example B: 75
+    Ask "Can I divide 75 by 2, how about 3, or 5, etc.?
+    75 can be split with integers (no "//") like this:
+        .. 75
+        .. 3 * 25
+        .. 3 * 5 * 5    
+
+
+
+
+Example C: 154
+        .. 2 * 77
+        .. 2 * 7 * 11
+
+Visualize with integer-division:
+.. Note that using "N // 2" will provide only the range of PFs,
+.. Using the "//" operator carelessly may result in betrayal for odd numbers.
+154 // 2 (also for "155 // 2")
+        ,,
+    2       77
+            ,,
+        7      11
+
+
+
+"""
