@@ -37,7 +37,7 @@
     
     ## ** SOLUTION **
       # Given an integer N, let N = pf_i * pf_j 
-        # where pf_i & pf_j are prime factors of N,
+        # where pf_i & pf_j are prime factors (PFs) of N,
         # which may not be distinct,
         # may have their own prime factors, but
         # only exist within the inclusive range: [2, N//2]
@@ -54,9 +54,39 @@
         
         
         # Solution 1 - Brute Force
-        # With Direct Search Factorization (trial division).
-            # 
-        
+        # Use direct search factorization (trial division).
+            # Set new range of integers to consider as PFs: [pf_min, pf_max]
+                # pf_min = 2
+                # .. (constant) the smallest possible prime factor
+                
+                # pf_max <= N//2
+                # .. (variable) the largest possible prime factor
+            
+            # Initialize auxiliary list to store Prime Factors
+                # pf = list()
+            
+            # For each current_integer in new A-range [2, pf_max]:
+                # .. perform factor-check
+                # Check if N is a multiple of current_int via trial-division:
+                    # If N % current_int == 0: factor found, proceed to prime-check
+                    # Else: go to next current_int
+                
+                # .. perform prime-check, filter out non-prime numbers
+                # If factor found in A-range, Check if current_integer has factors:
+                    # For each possible_factor in B-range [2, current_integer):
+                        # If current_integer % possible_factor == 0:
+                            # Break from current loop iteration
+                    
+                    # .. The else clause of a for-loop will run when no "break" occurs,
+                    # .. which means current_integer is both a prime number and a factor of N.
+                    # Else:
+                        # Append current_integer to list of PFs
+            
+            return tuple: (sum of list, [list of prime factors])
+
+
+
+
         
         
         
@@ -124,39 +154,6 @@ N = 22 = 2 * 11
 
 
 
-Approach for finding all PFs: Solution 1, Brute Force / Trial Division
-    Set new range of integers to consider as PFs: [pf_min, pf_max]
-        pf_min = 2
-        .. (constant) the smallest possible prime factor
-        
-        pf_max <= N//2
-        .. (variable) the largest possible prime factor
-        .. Assume the operator for (floor) integer-division "//" rounds down.
-    
-    Initialize auxiliary list to store PFs
-        pf = list()
-    
-    For each current_integer in new range [2, pf_max]:
-        .. factor-check
-        Check if N is a multiple of current_integer: use "%" for trial-division:
-            If N % current_integer == 0: factor found, proceed to prime-check
-            Else: go to next current_integer
-        
-        .. prime-check, Filter out non-prime numbers
-        If a factor is found in new range: Check if it is or isn't a prime number
-        Check if current_integer has factors:
-            For each possible_factor in B-range [2, current_integer):
-                If current_integer % possible_factor == 0:
-                    Break from current loop iteration
-            
-            .. The else clause of a for-loop will run when no "break" occurs,
-            .. which means current_integer is both a prime number and a factor of N.
-            Else: 
-                Append current_integer to list of PFs
-    
-    return tuple: (sum of list, [list of prime factors])
-
-
 __________________________________________________________________________
 
 
@@ -172,8 +169,8 @@ Testing concept in Python -->> it works:
     >>> for CI in range(2, N//2 + 1):
     ...     if N % CI == 0:
     ...         # Prime Check Starts Here
-    ...         for PF in range(2, CI):
-    ...             if CI % PF == 0:
+    ...         for PosFac in range(2, CI):
+    ...             if CI % PosFac == 0:
     ...                 break
     ...         else:
     ...             pf.append(CI)
