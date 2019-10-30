@@ -1,7 +1,32 @@
-## code block
-
-
-## code block
+def sum_prime_factors(N_given):
+    """ .. ^^ Update Doc Str ^^ .. 
+    .. uses direct search factorization (trial division) ..
+    Input: integer value >= 2 
+    Output: ____
+    """
+    
+    # Check for invalid inputs:
+        # IF valid: proceed (e.g., check if type is integer and N > = 2).
+        # IF invalid: print "Invalid entry." or do nothing.
+    
+    if N_given >= 2:  # ------------------------------------------------------------------------------------------------------------------------------ decide on "if-elif-else" vs "try-catch"
+        pf = list()
+        pf_max = N_given//2
+        
+        for current_integer in range(2, pf_max + 1):
+            # Perform factor-check
+            if N_given % current_integer == 0:
+                # Perform prime-check, filter out non-prime numbers
+                for possible_factor in range(2, current_integer):
+                    if current_integer % possible_factor == 0:
+                        break
+                else:
+                    pf.append(current_integer)
+                # Note:
+                # -> The else clause of a for-loop runs when no "break" occurs
+                # -> Thus, here, current_integer is a prime factor of N.
+        
+        return (sum(pf), pf)
 
 
 
@@ -38,7 +63,7 @@
     
     
     ## ** SOLUTION **
-      # Given an integer N, let N = pf_i * pf_j 
+      # Given an integer N, let N = pf_i * pf_j  ---------------------------------------------------------------------------------------------- include updated example with this section, move if needed
         # where pf_i & pf_j are prime factors (PFs) of N,
         # which may not be distinct,
         # may have their own prime factors, but
@@ -139,8 +164,8 @@ Extra Info to include, Example: ------------------------------------------------
 _________________________________________ Exclude info below
 
 Test these values for N:
-    -10
-    -6
+    -10 --> error should occur
+    -6 --> error should occur
     2
     3
     4
