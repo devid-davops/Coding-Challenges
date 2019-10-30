@@ -154,7 +154,7 @@ Approach for finding all PFs: Solution 1, Brute Force / Trial Division
             Else: 
                 Append current_integer to list of PFs
     
-    return tuple: ([list of prime factors], sum of list) ----------------------------------------------------------------------------------------------------- resume here, update the output
+    return tuple: (sum of list, [list of prime factors])
 
 
 __________________________________________________________________________
