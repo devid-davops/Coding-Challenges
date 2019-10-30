@@ -24,10 +24,12 @@
 
 # David Booker-Earley's approach for this challenge:
     ## ** OVERVIEW **
-        # 1. Accept a valid input.
-        # 2. 
-        # 3. 
-        # 4. 
+        # 1. Define a function that accepts a valid input, N (integer).
+        # 2. Set a new range of integers to consider as Prime Factors.
+        # 3. Perform checks.
+            # 3.a. Check for any factors of N.
+            # 3.b. Conditionaly perform a "prime-check" to filter out non-prime numbers.
+        # 4. Return the sum of the found prime factors.
     
     
     ## ** ASSUMPTIONS **
@@ -63,7 +65,7 @@
             
             # For each current_integer in new A-range [2, pf_max]:
                 # .. perform factor-check
-                # Check if N is a multiple of current_int via trial-division:
+                # Check if N is a multiple of current_int via trial division:
                     # If N % current_int == 0: factor found, proceed to prime-check
                     # Else: go to next current_int
                 
@@ -111,7 +113,9 @@
     
     
     ## ** IMPROVEMENTS (Extra Practice for Fun) **
-        # 1. 
+        # 1. Try the Intermediate & Advanced tasks, respectively.
+            # Solve the original task with zero (or minimal) Trial Division.
+            # Find the sum of each "unique" prime factor of the given number N.
         # 2. 
         # 3. 
     
@@ -127,7 +131,7 @@
 
 ## Temporary Conceptual Analysis
 """ 
-Extra Info to include
+Extra Info to include, Example: ---------------------------------------------------------------------------------------------- update & include brief example
     N = 22 = 2 * 11
     .. new range: [2 3 4 5 ... 10 11]
     .. [inclusive, exclusive)
@@ -135,6 +139,12 @@ Extra Info to include
 _________________________________________ Exclude info below
 
 Test these values for N:
+    -10
+    -6
+    2
+    3
+    4
+    6
     14
     15
     36
