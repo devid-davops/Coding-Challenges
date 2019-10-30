@@ -137,21 +137,52 @@ Approach for finding all PFs: Solution 1, Brute Force / Trial Division
     
     For each current_integer in new range [2, pf_max]:
         .. factor-check
-        Check if N is a multiple of current_integer: use "%" for trial-division
+        Check if N is a multiple of current_integer: use "%" for trial-division:
             If N % current_integer == 0: factor found, proceed to prime-check
             Else: go to next current_integer
         
         .. prime-check, Filter out non-prime numbers
-        If a factor is found in new range: Check if it is a prime number
-            .. Check if current_integer has factors:
+        If a factor is found in new range: Check if it is or isn't a prime number
+        Check if current_integer has factors:
             For each possible_factor in B-range [2, current_integer):
-                current_integer % possible_factor == 0:
+                If current_integer % possible_factor == 0:
                     Break from current loop iteration
             
             .. The else clause of a for-loop will run when no "break" occurs,
             .. which means current_integer is both a prime number and a factor of N.
             Else: 
                 Append current_integer to list of PFs
+
+
+
+
+Testing concept in Python -->> it works:
+    >>> pf = list()
+    >>> pf
+    []
+    >>>
+    >>> 
+    >>> N = 22
+    >>> 
+    >>> for CI in range(2, N//2 + 1):
+    ...     if N % CI == 0:
+    ...         # Prime Check Starts Here
+    ...         for PF in range(2, CI):
+    ...             if CI % PF == 0:
+    ...                 break
+    ...         else:
+    ...             pf.append(CI)
+    ... 
+    >>> 
+    >>> 
+    >>> pf
+    [2, 11]
+    >>>
+    >>> 
+    >>> sum(pf)
+    13
+    >>>
+
 
 
 
