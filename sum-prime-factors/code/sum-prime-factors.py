@@ -112,6 +112,7 @@ Known: N = pf_i * pf_j
 
 
 
+__________________________________________________________________________
 
 
 
@@ -152,7 +153,11 @@ Approach for finding all PFs: Solution 1, Brute Force / Trial Division
             .. which means current_integer is both a prime number and a factor of N.
             Else: 
                 Append current_integer to list of PFs
+    
+    return tuple: ([list of prime factors], sum of list) ----------------------------------------------------------------------------------------------------- resume here, update the output
 
+
+__________________________________________________________________________
 
 
 
@@ -184,9 +189,7 @@ Testing concept in Python -->> it works:
     >>>
 
 
-
-
-________________________________________________________________________________________________________________________________________________________________ resume here
+__________________________________________________________________________
 
 .. approach should be fine for relatively small numbers, N <= 50.
 
