@@ -49,10 +49,6 @@
             # IF valid: proceed (e.g., check if type is integer and N > = 2).
             # IF invalid: print "Invalid entry." or do nothing.
         
-        
-        
-        
-        
         # Solution 1 - Brute Force
         # Use direct search factorization (trial division).
             # Set new range of integers to consider as PFs: [pf_min, pf_max]
@@ -82,7 +78,7 @@
                     # Else:
                         # Append current_integer to list of PFs
             
-            return tuple: (sum of list, [list of prime factors])
+            # return tuple: (sum of list, [list of prime factors])
 
 
 
@@ -92,20 +88,19 @@
         
         
         # Solution 2 - ?
-        # Without Direct Search Factorization.
-            # 
-        
-        
-        
-        
-        
-        # Divide and Conquer -> ? :
-            # Setup sub-function(s):
-                # Block A -> Main and ?:
-                    # ?
-                
-                # Block B -> ?:
-                    # ?
+        # Minimal Direct Search Factorization.
+            # ?
+            
+            
+            
+            
+            # Divide and Conquer -> ? :
+                # Setup sub-function(s):
+                    # Block A -> Main and ?:
+                        # ?
+                    
+                    # Block B -> ?:
+                        # ?
       
       
       
@@ -131,32 +126,25 @@
 
 
 ## Temporary Conceptual Analysis
-""" Note: A Prime Factor is a factor that is a prime number.
+""" 
+Extra Info to include
+    N = 22 = 2 * 11
+    .. new range: [2 3 4 5 ... 10 11]
+    .. [inclusive, exclusive)
 
-Known: N = pf_i * pf_j 
-    .. where pf_i & pf_j are prime factors of a given number N,
-    .. which may not be distinct,
-    .. may have their own prime factors, but
-    .. exist within the inclusive range: [2, N//2]
+_________________________________________ Exclude info below
 
+Test these values for N:
+    14
+    15
+    36
+    50
+    75
+    154
+    155
+    500
 
-
-
-__________________________________________________________________________
-
-
-
-
-N = 22 = 2 * 11
-.. new range: [2 3 4 5 ... 10 11]
-.. [inclusive, exclusive)
-
-
-
-
-__________________________________________________________________________
-
-
+_________________________________________
 
 Testing concept in Python -->> it works:
     >>> pf = list()
@@ -188,12 +176,13 @@ Testing concept in Python -->> it works:
 
 __________________________________________________________________________
 
-.. approach should be fine for relatively small numbers, N <= 50.
+.. Trial Division approach should be fine for relatively small numbers, N <= 50.
 
 50 // 2
 25
 5 * 5
 
+__________________________________________________________________________
 
 
 500 can be split like this:
