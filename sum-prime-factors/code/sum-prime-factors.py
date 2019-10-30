@@ -138,11 +138,9 @@ def sum_prime_factors(N_given):
     
     
     ## ** IMPROVEMENTS (Extra Practice for Fun) **
-        # 1. Try the Intermediate & Advanced tasks, respectively.
-            # Solve the original task with zero (or minimal) Trial Division.
-            # Find the sum of each "unique" prime factor of the given number N.
-        # 2. 
-        # 3. 
+        # 1. Solve the original task with zero (or minimal) Trial Division.
+        # 2. Find the sum of each "unique" prime factor of the given number N.
+        # 3. Write the code such that it runs in sub-linear time.
     
     
     ## Notes to self for Testing and Troubleshooting:
