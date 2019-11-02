@@ -22,14 +22,23 @@ def sum_prime_factors(N_given):
                 # Note:
                 # -> The else clause of a for-loop runs when no "break" occurs
                 # -> Thus, here, current_integer is a prime factor of N.
-        
-        if len(pf) > 0: # ------------------------------------------------------------------------------------------------------------------------------
+                
+        if not pf:
+            return  ?  # ------------------------------------------------------------------------------------------------------------------------------ print("EMPTY") ... return None ?
+        elif pf: 
             return (sum(pf), pf)
-        else:
-            print(f"Sorry, no prime factors were found for {N_given}, try a different value.")
+
+
+
+
+## define print_details()
+
+
 
 
 N_arr = [-10, -6, 2, 3, 4, 6, 14, 15, 36, 50, 75, 154, 155, 500]
+
+## Test each value manually
 # N = N_arr[0]
 # output = sum_prime_factors(N)
 # print(f"""
@@ -38,16 +47,32 @@ N_arr = [-10, -6, 2, 3, 4, 6, 14, 15, 36, 50, 75, 154, 155, 500]
 # Prime Factors: {output[-1]}
 # """)
 
+
+## Test via loop
 for n in N_arr:
     try:
         output = sum_prime_factors(n)
-        print(f"""
-        Number: {n}
-        Sum of Prime Factors: {output[0]}
-        Prime Factors: {output[-1]}
-        """)
+        if # ------------------------------------------------------------------------------------------------------------------------------
+            print(f"""
+            Number: {n}
+            Sum of Prime Factors: {output[0]}
+            Prime Factors: {output[-1]}
+            """)
+
+        else:
+            print(f"Sorry, no prime factors were found for {N_given}, try a different value.")
+    
     except (TypeError, ValueError):
         print("Oops!  That was no valid number.  Try again.")
+
+
+
+
+
+
+
+
+
 
 
 
@@ -181,6 +206,11 @@ Extra Info to include, Example: ------------------------------------------------
     N = 22 = 2 * 11
     .. new range: [2 3 4 5 ... 10 11]
     .. [inclusive, exclusive)
+
+
+
+
+
 
 _________________________________________ Exclude info below
 
