@@ -63,14 +63,6 @@ def sum_prime_factors(N_given):
     
     
     ## ** SOLUTION **
-      # Given an integer N, let N = pf_i * pf_j  ---------------------------------------------------------------------------------------------- include updated example with this section, move if needed
-        # where pf_i & pf_j are prime factors (PFs) of N,
-        # which may not be distinct,
-        # may have their own prime factors, but
-        # only exist within the inclusive range: [2, N//2]
-      
-      
-      
       # Define a function that accepts a given integer N.
         # Check for invalid inputs:
             # IF valid: proceed (e.g., check if type is integer and N > = 2).
@@ -137,6 +129,17 @@ def sum_prime_factors(N_given):
       # Print results.
     
     
+    ## ** EXAMPLE **
+        # Given an integer N, 
+        # Let N = pf_i * pf_j  
+            # where pf_i & pf_j are prime factors (PFs) of N,
+            # which may not be distinct,
+            # may have their own prime factors, but
+            # only exist within the inclusive range: [2, N//2]
+        # ---------------------------------------------------------------------------------------------- include updated example
+      
+      
+      
     ## ** IMPROVEMENTS (Extra Practice for Fun) **
         # 1. Solve the original task with zero (or minimal) Trial Division.
         # 2. Find the sum of each "unique" prime factor of the given number N.
