@@ -1,17 +1,14 @@
 def sum_prime_factors(N_given):
-    """ .. ^^ Update Doc Str ^^ .. 
-    .. uses direct search factorization (trial division) ..
-    Input: integer value >= 2 
-    Output: ____
+    """Accepts given integer N >= 2. Returns sum of prime factors and
+    a list of all prime factors found as a tuple: (sum, [list]).
+    
+    Finds all prime factors for N using direct-search-factorization
+    (trial division).
     """
     
-    # Check for invalid inputs:
-        # IF valid: proceed (e.g., check if type is integer and N > = 2).
-        # IF invalid: print "Invalid entry." or do nothing.
-    
-    if N_given >= 2:  # ------------------------------------------------------------------------------------------------------------------------------ decide on "if-elif-else" vs "try-catch"
-        pf = list()
+    if N_given >= 2:
         pf_max = N_given//2
+        pf = list()
         
         for current_integer in range(2, pf_max + 1):
             # Perform factor-check
@@ -26,8 +23,31 @@ def sum_prime_factors(N_given):
                 # -> The else clause of a for-loop runs when no "break" occurs
                 # -> Thus, here, current_integer is a prime factor of N.
         
-        return (sum(pf), pf)
+        if len(pf) > 0: # ------------------------------------------------------------------------------------------------------------------------------
+            return (sum(pf), pf)
+        else:
+            print(f"Sorry, no prime factors were found for {N_given}, try a different value.")
 
+
+N_arr = [-10, -6, 2, 3, 4, 6, 14, 15, 36, 50, 75, 154, 155, 500]
+# N = N_arr[0]
+# output = sum_prime_factors(N)
+# print(f"""
+# Number: {n}
+# Sum of Prime Factors: {output[0]}
+# Prime Factors: {output[-1]}
+# """)
+
+for n in N_arr:
+    try:
+        output = sum_prime_factors(n)
+        print(f"""
+        Number: {n}
+        Sum of Prime Factors: {output[0]}
+        Prime Factors: {output[-1]}
+        """)
+    except (TypeError, ValueError):
+        print("Oops!  That was no valid number.  Try again.")
 
 
 
@@ -180,9 +200,10 @@ Test these values for N:
     155
     500
 
+
 _________________________________________
 
-Testing concept in Python -->> it works:
+Testing main concept in Python -->> it works:
     >>> pf = list()
     >>> pf
     []
@@ -207,6 +228,34 @@ Testing concept in Python -->> it works:
     >>> 
     >>> sum(pf)
     13
+    >>>
+
+
+_________________________________________
+
+Testing concept of TRUE-FALSE with empty sequences in Python -->> it works:
+    >>> pf = list()
+    >>> sum(pf)
+    0   
+    >>> pf
+    []  
+    >>> if not pf:         
+    ...     print("EMPTY") 
+    ... elif pf: 
+    ...     print("FULL")
+    ... 
+    EMPTY
+    >>> pf.append(2)
+    >>> pf
+    [2]
+    >>>    
+    >>> 
+    >>> if not pf:
+    ...     print("EMPTY")
+    ... elif pf:
+    ...     print("FULL")
+    ... 
+    FULL
     >>>
 
 
