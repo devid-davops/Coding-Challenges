@@ -1,6 +1,6 @@
 def sum_prime_factors(N_given):
-    """Accepts given integer N >= 2. Returns sum of prime factors and
-    a list of all prime factors found as a tuple: (sum, [list]).
+    """Accepts given integer N >= 2. Returns a tuple of the sum of prime
+    factors, a list of all prime factors found, and N: (sum, [list], N).
     
     Finds all prime factors for N using direct-search-factorization
     (i.e., trial division).
@@ -20,50 +20,63 @@ def sum_prime_factors(N_given):
                 else:
                     pf.append(current_integer)
                 # Note:
-                # -> The else clause of a for-loop runs when no "break" occurs
-                # -> Thus, here, current_integer is a prime factor of N.
-                
+                # The else clause of a for-loop runs when no "break" occurs.
+                # Thus, here, current_integer is a prime factor of N.
+        
         if not pf:
-            return  ?  # ------------------------------------------------------------------------------------------------------------------------------ print("EMPTY") ... return None ?
+            return f"No Prime Factor was found for {N_given}, try again."
+        
         elif pf: 
-            return (sum(pf), pf)
+            return (sum(pf), pf, N_given)
 
 
+def print_details(details):
+    """Prints organized results of sum_prime_factors()."""
+    
+    if isinstance(details, tuple):
+        print(f"""Great choice! Here are the details:
+        Number Given: {details[-1]}
+        Sum of Prime Factors: {details[0]}
+        Prime Factor(s): {details[1]}
+        """)
+    
+    else:
+        print(details)
 
-
-## define print_details()
-
-
-
-
-N_list = [-10, -6, 2, 3, 4, 6, 14, 15, 36, 50, 75, 154, 155, 500]
 
 ## Test each value manually
-# N = N_list[0]
-# output = sum_prime_factors(N)
-# print(f"""
-# Number: {n}
-# Sum of Prime Factors: {output[0]}
-# Prime Factors: {output[-1]}
-# """)
+N_list = [-10, -6, 2, 3, 4, 6, 14, 15, 30, 36, 50, 75, 154, 155, 500]
+N = N_list[0]
+print_details( sum_prime_factors(N) )
 
 
-## Test via loop
-for n in N_list:
-    try:
-        output = sum_prime_factors(n)
-        if # ------------------------------------------------------------------------------------------------------------------------------
-            print(f"""
-            Number: {n}
-            Sum of Prime Factors: {output[0]}
-            Prime Factors: {output[-1]}
-            """)
 
-        else:
-            print(f"Sorry, no prime factors were found for {N_given}, try a different value.")
+
+
+
+
+
+
+
+
+
+# ## Test via loop
+# N_list = [-10, -6, 2, 3, 4, 6, 14, 15, 30, 36, 50, 75, 154, 155, 500]
+# for n in N_list:
+#     try:
+#         output = sum_prime_factors(n)
+#         if # ------------------------------------------------------------------------------------------------------------------------------
+#             print(f"""
+#             Number: {n}
+#             Sum of Prime Factors: {output[0]}
+#             Prime Factors: {output[-1]}
+#             """)
+
+#         else:
+#             print(f"Sorry, no prime factors were found for {N_given}, try a different value.")
     
-    except (TypeError, ValueError):
-        print("Oops!  That was no valid number.  Try again.")
+#     except (TypeError, ValueError):
+#         print("Oops!  That was no valid number.  Try again.")
 
 
 
