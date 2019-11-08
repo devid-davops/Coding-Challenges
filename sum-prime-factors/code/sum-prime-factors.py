@@ -1,9 +1,11 @@
-def sum_prime_factors(N_given):
-    """Accepts given integer N >= 2. Returns a tuple of the sum of prime
-    factors, a list of all prime factors found, and N: (sum, [list], N).
+def sum_unique_prime_factors(N_given):
+    """Accepts given integer N >= 2. Returns a tuple of the sum of only
+    unique prime factors, a list of all unique prime factors found, & N.
     
-    Finds all prime factors for N using direct-search-factorization
-    (i.e., trial division).
+    Output: (sum, [list], N).
+    
+    Finds all prime factors for N using direct-search-factorization,
+    i.e., trial division.
     """
     
     if N_given >= 2:
@@ -34,13 +36,13 @@ def sum_prime_factors(N_given):
 
 
 def print_details(details):
-    """Prints organized results of sum_prime_factors()."""
+    """Prints organized results of sum_unique_prime_factors()."""
     
     if isinstance(details, tuple):
         print(f"""Great choice! Here are the details:
         Number Given: {details[-1]}
-        Sum of Prime Factors: {details[0]}
-        Prime Factor(s): {details[1]}
+        Sum of Unique Prime Factors: {details[0]}
+        Unique Prime Factor(s): {details[1]}
         """)
     
     else:
@@ -49,35 +51,13 @@ def print_details(details):
 
 ## Test each value manually
 N_list = [-10, -6, 2, 3, 4, 6, 14, 15, 30, 36, 50, 75, 154, 155, 500]
-N = N_list[0]
-print_details( sum_prime_factors(N) )
-
-
-
-
-
-
-
-
-
-
-
+N = N_list[4]
+print_details( sum_unique_prime_factors(N) )
 
 # ## Test via loop
-# N_list = [-10, -6, 2, 3, 4, 6, 14, 15, 30, 36, 50, 75, 154, 155, 500]
 # for n in N_list:
 #     try:
-#         output = sum_prime_factors(n)
-#         if # ------------------------------------------------------------------------------------------------------------------------------
-#             print(f"""
-#             Number: {n}
-#             Sum of Prime Factors: {output[0]}
-#             Prime Factors: {output[-1]}
-#             """)
-
-#         else:
-#             print(f"Sorry, no prime factors were found for {N_given}, try a different value.")
-    
+#         
 #     except (TypeError, ValueError):
 #         print("Oops!  That was no valid number.  Try again.")
 
@@ -94,7 +74,7 @@ print_details( sum_prime_factors(N) )
 
 ## DBE's Notes
 """ Notes about Challenge:
-    1. Display the sum of all prime factors (if any exist) of a given integer, N.
+    1. Display the sum of unique prime factors (if any exist) of a given integer, N.
         -> input: 30
         -> output: 2 + 3 + 5 = 10
 
@@ -202,8 +182,8 @@ print_details( sum_prime_factors(N) )
       
       
     ## ** IMPROVEMENTS (Extra Practice for Fun) **
-        # 1. Solve the original task with zero (or minimal) Trial Division.
-        # 2. Find the sum of each "unique" prime factor of the given number N.
+        # 1. Output the prime factors as ___ multiples of a unique base factor: 36 = 2^2 * 3^2 ... sum_unique = 2 + 3 = 5 ... sum_all = 4 + 9 = 13 ------------------------------------------ update
+        # 2. Solve the original task with zero (or minimal) Trial Division.
         # 3. Write the code such that it runs in sub-linear time.
     
     
