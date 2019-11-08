@@ -3,7 +3,7 @@ def sum_prime_factors(N_given):
     a list of all prime factors found as a tuple: (sum, [list]).
     
     Finds all prime factors for N using direct-search-factorization
-    (trial division).
+    (i.e., trial division).
     """
     
     if N_given >= 2:
@@ -36,10 +36,10 @@ def sum_prime_factors(N_given):
 
 
 
-N_arr = [-10, -6, 2, 3, 4, 6, 14, 15, 36, 50, 75, 154, 155, 500]
+N_list = [-10, -6, 2, 3, 4, 6, 14, 15, 36, 50, 75, 154, 155, 500]
 
 ## Test each value manually
-# N = N_arr[0]
+# N = N_list[0]
 # output = sum_prime_factors(N)
 # print(f"""
 # Number: {n}
@@ -49,7 +49,7 @@ N_arr = [-10, -6, 2, 3, 4, 6, 14, 15, 36, 50, 75, 154, 155, 500]
 
 
 ## Test via loop
-for n in N_arr:
+for n in N_list:
     try:
         output = sum_prime_factors(n)
         if # ------------------------------------------------------------------------------------------------------------------------------
