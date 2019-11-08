@@ -90,17 +90,17 @@ print_details( sum_unique_prime_factors(N) )
 
 # David Booker-Earley's approach for this challenge:
     ## ** OVERVIEW **
-        # 1. Define a function that accepts a valid input, N (integer).
-        # 2. Set a new range of integers to consider as Prime Factors.
-        # 3. Perform checks.
-            # 3.a. Check for any factors of N.
-            # 3.b. Conditionaly perform a "prime-check" to filter out non-prime numbers.
-        # 4. Return the sum of the found prime factors.
+        # 1. Define a function that accepts a valid integer input, N.
+        # 2. Set a new range of integers to consider as Prime Factors (PFs).
+        # 3. Conditionaly perform checks.
+            # 3.a. Check for any factors (unique or not) of N.
+            # 3.b. Perform a "prime-check" to filter out non-prime numbers.
+        # 4. Return the sum of the found (unique or not) prime factors.
     
     
     ## ** ASSUMPTIONS **
-        # 1. The integer input may have distinct or repeating prime factors (if any exist).
-        # 2. The operator for (floor) integer-division "//" rounds down.
+        # 1. Integer input has unique or repeating prime factors if any exist.
+        # 2. Operator for (floor) integer-division "//" rounds down.
     
     
     ## ** SOLUTION **
@@ -111,7 +111,7 @@ print_details( sum_unique_prime_factors(N) )
         
         # Solution 1 - Brute Force
         # Use direct search factorization (trial division).
-            # Set new range of integers to consider as PFs: [pf_min, pf_max]
+            # Set new range of integers to consider as PF: [pf_min, pf_max]
                 # pf_min = 2
                 # .. (constant) the smallest possible prime factor
                 
@@ -124,11 +124,12 @@ print_details( sum_unique_prime_factors(N) )
             # For each current_integer in new A-range [2, pf_max]:
                 # .. perform factor-check
                 # Check if N is a multiple of current_int via trial division:
-                    # If N % current_int == 0: factor found, proceed to prime-check
+                    # If N % current_int == 0: 
+                        # factor found, proceed to prime-check
                     # Else: go to next current_int
                 
                 # .. perform prime-check, filter out non-prime numbers
-                # If factor found in A-range, Check if current_integer has factors:
+                # If factor found in A-range, Check if current_int has PF:
                     # For each possible_factor in B-range [2, current_integer):
                         # If current_integer % possible_factor == 0:
                             # Break from current loop iteration
@@ -136,9 +137,9 @@ print_details( sum_unique_prime_factors(N) )
                     # .. The else clause of a for-loop will run when no "break" occurs,
                     # .. which means current_integer is both a prime number and a factor of N.
                     # Else:
-                        # Append current_integer to list of PFs
+                        # Append current_integer to list of PF
             
-            # return tuple: (sum of list, [list of prime factors])
+            # return tuple: (sum of unique list, [list of unique prime factors], N)
 
 
 
@@ -173,7 +174,7 @@ print_details( sum_unique_prime_factors(N) )
     ## ** EXAMPLE **
         # Given an integer N, 
         # Let N = pf_i * pf_j  
-            # where pf_i & pf_j are prime factors (PFs) of N,
+            # where pf_i & pf_j are prime factors (PF) of N,
             # which may not be distinct,
             # may have their own prime factors, but
             # only exist within the inclusive range: [2, N//2]
