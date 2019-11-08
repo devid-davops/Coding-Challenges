@@ -54,14 +54,21 @@ N_list = [-10, -6, 2, 3, 4, 6, 14, 15, 30, 36, 50, 75, 154, 155, 412, 500]
 N = N_list[-2]
 print_details( sum_unique_prime_factors(N) )
 
+
+
+
+
+
+
+
+
+
 # ## Test via loop
 # for n in N_list:
 #     try:
 #         
 #     except (TypeError, ValueError):
 #         print("Oops!  That was no valid number.  Try again.")
-
-
 
 
 
@@ -177,7 +184,7 @@ print_details( sum_unique_prime_factors(N) )
     
     
     ## ** IMPROVEMENTS (Extra Practice for Fun) **
-        # 1. Output the prime factors as _____ multiples of a unique base factor: 36 = 2^2 * 3^2 ... sum_unique = 2 + 3 = 5 ... sum_all = 4 + 9 = 13 ------------------------------------------ update
+        # 1. Display, respectively, the frequency of occurrence of each base factor (e.g., 36 = 2^2 * 3^2).
         # 2. Solve the original task with zero (or minimal) Trial Division.
         # 3. Write the code such that it runs in sub-linear time.
     
@@ -187,27 +194,3 @@ print_details( sum_unique_prime_factors(N) )
         # Track how the loops occur.
         # Track inputs & outputs.
         # Be sure the code & its action match conceptual approach.
-
-
-
-
-## Temporary Conceptual Analysis
-""" 
-Extra Info to include, Example: ---------------------------------------------------------------------------------------------- update & include brief example
-    
-    N = 22 = 2 * 11
-    .. new range: [2 3 4 5 ... 10 11]
-    .. [inclusive, exclusive)
-
-
-500 can be split like this:
-    5 100
-    5 10 10
-    5 5 2 5 2
-    5^3 * 2^2
-500 // 2
-250
-.. Loop A: range from 2 to 250
-.. Loop B: range from 2 to the current_integer in Loop A
-
-"""
