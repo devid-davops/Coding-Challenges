@@ -82,8 +82,8 @@ print_details( sum_unique_prime_factors(N) )
 ## DBE's Notes
 """ Notes about Challenge:
     1. Display the sum of unique prime factors (if any exist) of a given integer, N.
-        -> input: 30
-        -> output: 2 + 3 + 5 = 10
+        -> input: 500
+        -> output: 2 + 5 = 7
 
     References:
         [1] Python 3 Documentation 
