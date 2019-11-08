@@ -121,7 +121,12 @@ print_details( sum_unique_prime_factors(N) )
             # Initialize auxiliary list to store Prime Factors
                 # pf = list()
             
-            # For each current_integer in new A-range [2, pf_max]:
+            # For each current_integer in new A-range [2, pf_max],
+            # Perform checks to find base (unique) factors:
+                ## Note: An improvement would be to display, respectively,
+                ## the frequency of occurrence of each base factor
+                ## (e.g., 36 = 2^2 * 3^2).
+                
                 # Perform factor-check
                 # Check if N is a multiple of current_int via trial division:
                     # If N % current_int == 0: 
@@ -130,7 +135,7 @@ print_details( sum_unique_prime_factors(N) )
                 
                 # Perform prime-check, filter out non-prime numbers
                 # If factor found in A-range, Check if current_int has PF:
-                    # For each possible_factor in B-range [2, current_int):
+                    ## For each possible_factor in B-range [2, current_int):
                         # If current_int % possible_factor == 0:
                             # Break from current loop iteration
                     
@@ -138,7 +143,7 @@ print_details( sum_unique_prime_factors(N) )
                     ## "break" occurs, which means the current integer is 
                     ## both a factor and prime number (i.e., valid PF) of N.
                     
-                    # Else:
+                    ## Else:
                         # Append current_int to list of PF
             
             # return tuple of details: (sum, [list], N)
