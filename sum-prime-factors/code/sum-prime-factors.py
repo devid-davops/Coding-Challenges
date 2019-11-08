@@ -28,6 +28,9 @@ def sum_prime_factors(N_given):
         
         elif pf: 
             return (sum(pf), pf, N_given)
+    
+    else:
+        return f"Oops! {N_given} is not a valid number. Try again."
 
 
 def print_details(details):
