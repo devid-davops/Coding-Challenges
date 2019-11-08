@@ -50,8 +50,8 @@ def print_details(details):
 
 
 ## Test each value manually
-N_list = [-10, -6, 2, 3, 4, 6, 14, 15, 30, 36, 50, 75, 154, 155, 500]
-N = N_list[4]
+N_list = [-10, -6, 2, 3, 4, 6, 14, 15, 30, 36, 50, 75, 154, 155, 412, 500]
+N = N_list[-2]
 print_details( sum_unique_prime_factors(N) )
 
 # ## Test via loop
@@ -149,50 +149,31 @@ print_details( sum_unique_prime_factors(N) )
             # Conditionally return statement or results:
                 # If PF list is empty: return a string like "No PF found".
                 # Else: return a tuple of details: (sum, [list], N)
-
-
-
-
-        
-        
-        
-        
-        # Solution 2 - ?
-        # Minimal Direct Search Factorization.
-            # ?
-            
-            
-            
-            
-            # Divide and Conquer -> ? :
-                # Setup sub-function(s):
-                    # Block A -> Main and ?:
-                        # ?
-                    
-                    # Block B -> ?:
-                        # ?
-      
-      
-      
-      
       
       # Call main function on a given input.
       # Print results.
     
     
-    ## ** EXAMPLE **
-        # Given an integer N, 
-        # Let N = pf_i * pf_j  
+    ## ** CONCEPTUAL EXAMPLE **
+        # Given an integer N, Let N = pf_i * pf_j  
             # where pf_i & pf_j are prime factors (PF) of N,
             # which may not be distinct,
             # may have their own prime factors, but
             # only exist within the inclusive range: [2, N//2]
-        # ---------------------------------------------------------------------------------------------- include updated example
+        
         # Consider the following two integers:
         # N = 22
-            # 
+            # A list of PF of N would be: [2, 11]
+            # Notice that each PF is unique and exists within the range of:
+            # 2  <=  x  <=  (N // 2)
+                # Here, each PF respectively equals an end-value of the range,
+                # 2 is the lower-bound and 11 is the upper-bound.
         # N = 500
-            # 
+            # A list of PF of N would be: [2, 2, 5, 5, 5]
+            # Although not unique, each PF still exists within the range of:
+            # 2  <=  x  <=  (N // 2)
+            # The list of unique PF would be: [2, 5]
+            # A more accurately detailed output could show: "500 = 2^2 * 5^3"
     
     
     ## ** IMPROVEMENTS (Extra Practice for Fun) **
