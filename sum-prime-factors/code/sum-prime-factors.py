@@ -1,6 +1,6 @@
 def sum_unique_prime_factors(N_given):
     """Accepts given integer N >= 2. Returns a tuple of the sum of only
-    unique prime factors, a list of all unique prime factors found, & N.
+    unique prime factors, a list of unique prime factors found, and N.
     
     Output: (sum, [list], N).
     
@@ -113,33 +113,35 @@ print_details( sum_unique_prime_factors(N) )
         # Use direct search factorization (trial division).
             # Set new range of integers to consider as PF: [pf_min, pf_max]
                 # pf_min = 2
-                # .. (constant) the smallest possible prime factor
+                # -> (constant) the smallest possible prime factor
                 
                 # pf_max <= N//2
-                # .. (variable) the largest possible prime factor
+                # -> (variable) the largest possible prime factor
             
             # Initialize auxiliary list to store Prime Factors
                 # pf = list()
             
             # For each current_integer in new A-range [2, pf_max]:
-                # .. perform factor-check
+                # Perform factor-check
                 # Check if N is a multiple of current_int via trial division:
                     # If N % current_int == 0: 
                         # factor found, proceed to prime-check
                     # Else: go to next current_int
                 
-                # .. perform prime-check, filter out non-prime numbers
+                # Perform prime-check, filter out non-prime numbers
                 # If factor found in A-range, Check if current_int has PF:
-                    # For each possible_factor in B-range [2, current_integer):
-                        # If current_integer % possible_factor == 0:
+                    # For each possible_factor in B-range [2, current_int):
+                        # If current_int % possible_factor == 0:
                             # Break from current loop iteration
                     
-                    # .. The else clause of a for-loop will run when no "break" occurs,
-                    # .. which means current_integer is both a prime number and a factor of N.
+                    ## Note: The else clause of a for-loop will run when no
+                    ## "break" occurs, which means the current integer is 
+                    ## both a factor and prime number (i.e., valid PF) of N.
+                    
                     # Else:
-                        # Append current_integer to list of PF
+                        # Append current_int to list of PF
             
-            # return tuple: (sum of unique list, [list of unique prime factors], N)
+            # return tuple of details: (sum, [list], N)
 
 
 
@@ -183,7 +185,7 @@ print_details( sum_unique_prime_factors(N) )
       
       
     ## ** IMPROVEMENTS (Extra Practice for Fun) **
-        # 1. Output the prime factors as ___ multiples of a unique base factor: 36 = 2^2 * 3^2 ... sum_unique = 2 + 3 = 5 ... sum_all = 4 + 9 = 13 ------------------------------------------ update
+        # 1. Output the prime factors as _____ multiples of a unique base factor: 36 = 2^2 * 3^2 ... sum_unique = 2 + 3 = 5 ... sum_all = 4 + 9 = 13 ------------------------------------------ update
         # 2. Solve the original task with zero (or minimal) Trial Division.
         # 3. Write the code such that it runs in sub-linear time.
     
