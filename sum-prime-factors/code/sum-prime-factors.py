@@ -167,6 +167,9 @@ print_details( sum_unique_prime_factors(N) )
             # which may not be distinct,
             # may have their own prime factors, but
             # only exist within the inclusive range: [2, N//2]
+            ## Syntax Note on a Mathematical range:
+                ## brackets include, parens exclude
+                ## Range: [inclusive, exclusive)
         
         # Consider the following two integers:
         # N = 22
