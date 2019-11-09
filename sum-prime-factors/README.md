@@ -24,6 +24,8 @@ Display the sum of **unique prime factors** (if any exist) of a given integer, N
     1. Return the sum of the found prime factors.
 
 
+
+> _Updates will occur on Nov. 10, 2019_    ~ DBE
 #### Divide and Conquer Section (with code excerpts)
 * _Block A, Main:_
     * 
@@ -35,6 +37,8 @@ Display the sum of **unique prime factors** (if any exist) of a given integer, N
 ---
 
 
+
+> _Updates will occur on Nov. 10, 2019_    ~ DBE
 ***Block A*** and ***Block B*** can be implemented in _Python 3_ like this:
 
 ```python
@@ -68,33 +72,32 @@ Let `N = pf_i * pf_j`
 * Where `pf_i` & `pf_j` are prime factors (**PF**) of `N`,
     1. Which may not be distinct,
     2. May have their own prime factors, but
-    3. Only exist within the inclusive _range_: `[2, N//2]`
+    3. Only exist within the _inclusive range_: `[2, N//2]`
 
 Consider the following two integers:
 * `N = 22`
     * A list of **PF** of `N` would be: `[2, 11]`
-    * Notice that each **PF** is unique and exists within the _range_ of: `2  <=  x  <=  (N // 2)`
+    * Notice that each **PF** is unique and exists within the _range_ of:
+        `2 <= x <= (N // 2)`
     * Here, each **PF** respectively equals an end-value of the _range_:
         * 2 equals the _lower-bound_
         * 11 equals the _upper-bound_.
+
 * `N = 500`
     * A list of **PF** of N would be: `[2, 2, 5, 5, 5]`
-    * Although not unique, each **PF** still exists within the range of: `2  <=  x  <=  (N // 2)`
+    * Although not unique, each **PF** still exists within the range of:
+        `2 <= x <= (N // 2)`
     * The list of unique **PF** would be: `[2, 5]`
-        * A more accurately detailed output could show: `500: 2^2 * 5^3`
-
-
-
-
-
+        * A more accurately detailed output could show: `500 equals: 2^2 * 5^3`
 
 
 ---
 
 
 ### Improvements (optional but possibly fun)
-1. 
-1. 
+1. Display, respectively, the frequency of occurrence of each base factor (e.g., 36 = 2^2 * 3^2).
+2. Solve the original task with zero (or minimal) Trial Division.
+3. Write the code such that it runs in sub-linear time.
 
 
 ### References:
