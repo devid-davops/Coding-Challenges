@@ -98,7 +98,7 @@ print_details( sum_unique_prime_factors(N) )
 # David Booker-Earley's approach for this challenge:
     ## ** OVERVIEW **
         # 1. Define a function that accepts a valid integer input, N.
-        # 2. Set a new range of integers to consider as Prime Factors (PFs).
+        # 2. Set a new range of integers to consider as Prime Factors (PF).
         # 3. Conditionally perform checks.
             # 3.a. Check for any factors (unique or not) of N.
             # 3.b. Perform a "prime-check" to filter out non-prime numbers.
