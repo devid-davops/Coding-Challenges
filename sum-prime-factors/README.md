@@ -29,44 +29,27 @@ Display the sum of **unique prime factors** (if any exist) of a given integer, N
 
 
 #### Divide and Conquer Section (with code excerpts)
-* _Block A, Main:_
+* _Block A, Main Function:_
     * Check for invalid inputs:
-        * IF valid: proceed (e.g., `N >= 2`).
-        * IF invalid: print an `Invalid Entry` statement.
+        * IF _valid_: Proceed (e.g., `N >= 2`).
+        * Else, iF _invalid_: Return an `Invalid Entry` statement.
     * Set a new (inclusive) range of integers to consider as **PF**:
         * `[pf_min, pf_max]`
         * Where the smallest possible **PF** is a constant: `pf_min = 2`
         * Where the largest possible **PF** varies: `pf_max <= N//2`
-    * Initialize an _auxiliary list_ to store Prime Factors found.
-    * Perform checks to find base (unique) factors for each `current_integer` in the new _A-range_ `[2, pf_max]`:
+    * Initialize an _auxiliary list_ to store Prime Factors found.__*__
+    * Perform **checks** to find base (unique) **PF** for each `current_integer` in the new _A-range_ `[2, pf_max]`:__**__
         1. **Factor-Check**: Check if `N` is a multiple of `current_integer` via trial division:
-            1. If `N % current_integer` equals zero: _Factor found, proceed to **prime-check**_
-            2. Else: _Factor not found, check the next_ `current_integer`
-        2. **Prime-Check**, filter out non-prime numbers.
-        If factor found in A-range, Check if `current_integer` has PF:
-            # For each possible_factor in B-range [2, `current_integer`):
-                If `current_integer` % possible_factor == 0:
-                    Break from current loop iteration.
-            
-            # Note: The else clause of a for-loop will run when no
-            # "break" occurs, which means the current integer is 
-            # both a factor and prime number (i.e., valid PF) of `N`.
-            
-            # Else:
-                Append `current_integer` to list of **PF**.
+            1. If _Factor found_: Proceed to **prime-check**.
+            2. Else, if _Factor not found_: Check the next integer.
+        1. **Prime-Check**: Check if `current_integer` has any **PF** in _B-range_: `[2, current_integer)`:__**__
+            1. If _Factor found_: Check the next integer.
+            2. Else, if _Factor not found_: `current_integer` is a valid **PF** of `N`. Append it to the **PF**-list.
+    * Conditionally return results:
+        * If **PF**-list is empty: Return a `No PF found` statement.
+        * Else: return a tuple of details: `(sum, [PF-list], N)`
     
-    Conditionally return statement or results:
-        If PF list is empty: return a string like "No PF found".
-        Else: return a tuple of details: `(sum, [list], N)`
-
-> _**Note:** An improvement would be to display, respectively, the frequency of occurrence of each base factor (e.g., 36 = 2^2 * 3^2)._
-
-
-
-
-
-
-
+    >_**Note for Improvement:** Display, respectively, the frequency of occurrence of each base factor: `36 = 2^2 * 3^2`_
 
 
 * _Block B, Print Details:_
@@ -110,7 +93,6 @@ def sum_unique_prime_factors(N_given):
         
         if not pf:
             return f"No Prime Factor was found for {N_given}, try again."
-        
         elif pf: 
             return (sum(pf), pf, N_given)
     
@@ -139,24 +121,22 @@ def print_details(details):
 
 
 ## Extra Notes
-### Example: Computing Unique Prime Factors
-
-**Syntax Notes**
+### ** Syntax Notes
 * When writing a Mathematical range: _brackets include, parens exclude_
     * `R: [inclusive, exclusive)`
 * When using the range function in Python 3: _range(inclusive, exclusive)_
     * `range(2, 6)` returns a range of four integers from 2 up to, but not including, 6
     * `list(range(2, 6))` returns a list of the included integers: `[2, 3, 4, 5]`
 
-
-**Given an integer `N`,**
+### Example: Computing Unique Prime Factors
+> **Given an integer `N`,**
 Let `N = pf_i * pf_j`
 * Where `pf_i` & `pf_j` are prime factors (**PF**) of `N`,
-    1. Which may not be distinct,
-    2. May have their own prime factors, but
-    3. Only exist within the _inclusive range_: `[2, N//2]`
+    * Which may not be distinct,
+    * May have their own prime factors, but
+    * Only exist within the _inclusive range_: `[2, N//2]`
 
-Consider the following two integers:
+> **Consider the following two integers:**
 * `N = 22`
     * A list of **PF** of `N` would be: `[2, 11]`
     * Notice that each **PF** is unique and exists within the _range_ of:
@@ -170,7 +150,7 @@ Consider the following two integers:
     * Although not unique, each **PF** still exists within the range of:
         `2 <= x <= (N // 2)`
     * The list of unique **PF** would be: `[2, 5]`
-        * A more accurately detailed output could show: `500 equals: 2^2 * 5^3`
+        * A more accurately detailed output could show: `500 equals 2^2 * 5^3`
 
 
 ---
