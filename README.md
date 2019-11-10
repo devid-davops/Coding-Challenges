@@ -10,7 +10,7 @@ I’m classically trained in **Mechanical Engineering**, yet my reverence for _D
 - [x] fizz-buzz (modified) x 2
 - [x] quick-sort algorithm
 - [x] merge-sort algorithm
-- [ ] sum of prime factors
+- [x] sum of prime factors
 - [ ] Dijkstra’s Algorithm
 
 
