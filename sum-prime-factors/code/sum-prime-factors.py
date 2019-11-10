@@ -23,7 +23,7 @@ def sum_unique_prime_factors(N_given):
                     pf.append(current_integer)
                 # Note:
                 # The else clause of a for-loop runs when no "break" occurs.
-                # Thus, here, current_integer is a prime factor of N.
+                # Thus, here, current_integer is a valid prime factor of N.
         
         if not pf:
             return f"No Prime Factor was found for {N_given}, try again."
@@ -54,27 +54,9 @@ N_list = [-10, -6, 2, 3, 4, 6, 14, 15, 30, 36, 50, 75, 154, 155, 412, 500]
 N = N_list[-2]
 print_details( sum_unique_prime_factors(N) )
 
-
-
-
-
-
-
-
-
-
-# ## Test via loop
-# for n in N_list:
-#     try:
-#         
-#     except (TypeError, ValueError):
-#         print("Oops!  That was no valid number.  Try again.")
-
-
-
-
-
-
+## Test each value via loop
+for n in N_list:
+    print_details( sum_unique_prime_factors(n) )
 
 
 
