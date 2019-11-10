@@ -24,20 +24,16 @@ Display the sum of **unique prime factors** (if any exist) of a given integer, N
     1. Return the sum of prime factors found.
 
 
-
-> _Updates will occur on Nov. 10, 2019_    ~ DBE
-
-
 #### Divide and Conquer Section (with code excerpts)
 * _Block A, Main Function:_
     * Check for invalid inputs:
         * IF _valid_: Proceed (e.g., `N >= 2`).
         * Else, iF _invalid_: Return an `Invalid Entry` statement.
     * Set a new (inclusive) range of integers to consider as **PF**:
-        * `[pf_min, pf_max]`
-        * Where the smallest possible **PF** is a constant: `pf_min = 2`
-        * Where the largest possible **PF** varies: `pf_max <= N//2`
-    * Initialize an _auxiliary list_ to store Prime Factors found.__*__
+        * `[pf_min, pf_max]`__**__
+            * Where the smallest possible **PF** is a constant: `pf_min = 2`
+            * Where the largest possible **PF** varies: `pf_max <= N//2`
+    * Initialize an _auxiliary list_ to store Prime Factors found.__^^__
     * Perform **checks** to find base (unique) **PF** for each `current_integer` in the new _A-range_ `[2, pf_max]`:__**__
         1. **Factor-Check**: Check if `N` is a multiple of `current_integer` via trial division:
             1. If _Factor found_: Proceed to **prime-check**.
@@ -47,20 +43,18 @@ Display the sum of **unique prime factors** (if any exist) of a given integer, N
             2. Else, if _Factor not found_: `current_integer` is a valid **PF** of `N`. Append it to the **PF**-list.
     * Conditionally return results:
         * If **PF**-list is empty: Return a `No PF found` statement.
-        * Else: return a tuple of details: `(sum, [PF-list], N)`
+        * Else: return a tuple of details to display via _Block B_: `(sum, [PF-list], N)`
     
-    >_**Note for Improvement:** Display, respectively, the frequency of occurrence of each base factor: `36 = 2^2 * 3^2`_
-
+    >_^^ **Note for Improvement:** Track & display frequency of each occurrence, respectively: `2^2 * 3^2 = 36`_
 
 * _Block B, Print Details:_
-    * 
+    * Print organized results of the _main_ function.
+    * Display the **PF**-list and its sum if any **PF** exist.
 
 
 ---
 
 
-
-> _Updates will occur on Nov. 10, 2019_    ~ DBE
 ***Block A*** and ***Block B*** can be implemented in _Python 3_ like this:
 
 ```python
@@ -116,10 +110,6 @@ def print_details(details):
 ```
 
 
-
-
-
-
 ## Extra Notes
 ### ** Syntax Notes
 * When writing a Mathematical range: _brackets include, parens exclude_
@@ -128,7 +118,7 @@ def print_details(details):
     * `range(2, 6)` returns a range of four integers from 2 up to, but not including, 6
     * `list(range(2, 6))` returns a list of the included integers: `[2, 3, 4, 5]`
 
-### Example: Computing Unique Prime Factors
+### Example: Computing Unique PF-List
 > **Given an integer `N`,**
 Let `N = pf_i * pf_j`
 * Where `pf_i` & `pf_j` are prime factors (**PF**) of `N`,
@@ -138,26 +128,41 @@ Let `N = pf_i * pf_j`
 
 > **Consider the following two integers:**
 * `N = 22`
-    * A list of **PF** of `N` would be: `[2, 11]`
-    * Notice that each **PF** is unique and exists within the _range_ of:
+    * A list of **PF** of `N` would be the following:
+        
+        `[2, 11]`
+    
+    * Notice that each **PF** is unique and exists within the following generic _A-range_:
+        
         `2 <= x <= (N // 2)`
-    * Here, each **PF** respectively equals an end-value of the _range_:
+    
+    * Here, each **PF** respectively equals an end-value of _A-range_.
         * 2 equals the _lower-bound_
         * 11 equals the _upper-bound_.
 
 * `N = 500`
-    * A list of **PF** of N would be: `[2, 2, 5, 5, 5]`
-    * Although not unique, each **PF** still exists within the range of:
+    * A list of **PF** of `N` would be the following:
+        
+        `[2, 2, 5, 5, 5]`
+    
+    * Although not unique, each **PF** still exists within _A-range_:
+        
         `2 <= x <= (N // 2)`
-    * The list of unique **PF** would be: `[2, 5]`
-        * A more accurately detailed output could show: `500 equals 2^2 * 5^3`
+    
+    * The list of unique **PF** would be the following:
+        
+        `[2, 5]`
+        
+    * A more accurately detailed output could show the _frequency of occurrence_ of each base factor:
+        
+        `2^2 * 5^3 = 500`
 
 
 ---
 
 
 ### Improvements (optional but possibly fun)
-1. Display, respectively, the frequency of occurrence of each base factor (e.g., 36 = 2^2 * 3^2).
+1. Display, respectively, the frequency of occurrence of each base factor (e.g., `2^2 * 3^2 = 36`).
 2. Solve the original task with zero (or minimal) Trial Division.
 3. Write the code such that it runs in sub-linear time.
 
